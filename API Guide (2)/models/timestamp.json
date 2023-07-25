@@ -1,0 +1,9 @@
+{
+  "title": "timestamp",
+  "x-stoplight": {
+    "id": "0nwpboaap3nb0"
+  },
+  "type": "string",
+  "format": "date-time",
+  "description": "Timestamp."
+}

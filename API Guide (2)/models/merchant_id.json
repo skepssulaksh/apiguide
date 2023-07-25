@@ -1,0 +1,9 @@
+{
+  "title": "merchant_id",
+  "x-stoplight": {
+    "id": "ctlpur7b5o3aq"
+  },
+  "type": "string",
+  "maxLength": 8,
+  "description": "This will be provided by Skeps"
+}

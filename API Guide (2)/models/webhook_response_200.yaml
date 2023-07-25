@@ -1,0 +1,45 @@
+title: webhook_response_200
+x-stoplight:
+  id: 0yb5dm96mi8nl
+type: object
+properties:
+  data:
+    type: object
+    x-stoplight:
+      id: 0n1rlthvkue1m
+    properties:
+      fund_summary:
+        type: object
+        x-stoplight:
+          id: s7u5mhktgofvw
+        properties:
+          contract_amount:
+            type: string
+            x-stoplight:
+              id: g8xhn6pnuf2tj
+            description: Total contract amount.
+          funds_available:
+            type: string
+            x-stoplight:
+              id: miv57y9gdacs7
+            description: Funds remaining.
+          funded_amount:
+            type: string
+            x-stoplight:
+              id: 0nb9xutte2zd9
+            description: Total amount funded.
+          funds_under_process:
+            type: string
+            x-stoplight:
+              id: 1o5i03joju3yy
+            description: Amount under process.
+          refunded_amount:
+            type: string
+            x-stoplight:
+              id: t4ws9q9xjw2hg
+            description: total amount successfully refunded.
+          refunds_under_process:
+            type: string
+            x-stoplight:
+              id: 0yetbdrw1aupq
+            description: refund amount under process.

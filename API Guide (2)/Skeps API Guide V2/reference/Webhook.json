@@ -1,0 +1,216 @@
+{
+  "openapi": "3.1.0",
+  "x-stoplight": {
+    "id": "cigwr4vwqur62"
+  },
+  "info": {
+    "title": "Webhook",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    }
+  ],
+  "paths": {
+    "/webhook": {
+      "post": {
+        "summary": "Webhook",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/webhook_response_200.yaml"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "post-webhook",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "../../models/webhook_request.json"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {
+                    "id": "string",
+                    "timestamp": "2019-08-24T14:15:22Z",
+                    "type": "ORDER",
+                    "data": {
+                      "id": "string",
+                      "store_id": "string",
+                      "merchant_id": "string",
+                      "amount": 0,
+                      "lender": "string",
+                      "status": "APPROVED",
+                      "max_qualified_amount": 0,
+                      "offers": [
+                        {
+                          "lender_name": "string",
+                          "offer_for": "string",
+                          "offer_id": "string",
+                          "term_value": 0,
+                          "term_unit": "string",
+                          "apr": 0,
+                          "plan_id": "string",
+                          "min_amount": 0,
+                          "max_amount": 0,
+                          "expiry": "string",
+                          "is_incentivized": true,
+                          "payment_amount": 0,
+                          "payment_frequency_unit": "string",
+                          "payment_frequency_value": "string",
+                          "loan_amount": 0,
+                          "payment_factor": 0
+                        }
+                      ],
+                      "selected_offer": {
+                        "lender_name": "string",
+                        "offer_for": "string",
+                        "offer_id": "string",
+                        "term_value": 0,
+                        "term_unit": "string",
+                        "apr": 0,
+                        "plan_id": "string",
+                        "min_amount": 0,
+                        "max_amount": 0,
+                        "expiry": "string",
+                        "is_incentivized": true,
+                        "payment_amount": 0,
+                        "payment_frequency_unit": "string",
+                        "payment_frequency_value": "string",
+                        "loan_amount": 0,
+                        "payment_factor": 0
+                      },
+                      "requires_stipulations": true,
+                      "requires_review": true,
+                      "merchant_data": {
+                        "reference_id": "string",
+                        "metadata": {},
+                        "dealer_data": {
+                          "id": "string",
+                          "name": "string",
+                          "address": {
+                            "unit": "string",
+                            "street_address_1": "string",
+                            "street_address_2": "string",
+                            "city": "string",
+                            "state": "st",
+                            "country": "US",
+                            "zip_code": "string"
+                          }
+                        },
+                        "representative_data": {
+                          "id": "string",
+                          "name": "string",
+                          "cell_phone": "string",
+                          "email": "string"
+                        }
+                      },
+                      "expiry": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              },
+              "examples": {}
+            }
+          },
+          "description": ""
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "User": {
+        "title": "User",
+        "type": "object",
+        "description": "",
+        "examples": [
+          {
+            "id": 142,
+            "firstName": "Alice",
+            "lastName": "Smith",
+            "email": "alice.smith@gmail.com",
+            "dateOfBirth": "1997-10-31",
+            "emailVerified": true,
+            "signUpDate": "2019-08-24"
+          }
+        ],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Unique identifier for the given user.",
+            "x-stoplight": {
+              "id": "25gaj630a4jxd"
+            }
+          },
+          "firstName": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "nns4t70oooguf"
+            }
+          },
+          "lastName": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "vd5lsdnljgljz"
+            }
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "x-stoplight": {
+              "id": "lr7u2et17brbr"
+            }
+          },
+          "dateOfBirth": {
+            "type": "string",
+            "format": "date",
+            "example": "1997-10-31",
+            "x-stoplight": {
+              "id": "n6km8incva3ra"
+            }
+          },
+          "emailVerified": {
+            "type": "boolean",
+            "description": "Set to true if the user's email has been verified.",
+            "x-stoplight": {
+              "id": "zwahcyafe0rkn"
+            }
+          },
+          "createDate": {
+            "type": "string",
+            "format": "date",
+            "description": "The date that the user was created.",
+            "x-stoplight": {
+              "id": "5x1rthqkays7x"
+            }
+          }
+        },
+        "required": [
+          "id",
+          "firstName",
+          "lastName",
+          "email",
+          "emailVerified"
+        ],
+        "x-stoplight": {
+          "id": "8h2avmxql7kxy"
+        }
+      }
+    }
+  }
+}

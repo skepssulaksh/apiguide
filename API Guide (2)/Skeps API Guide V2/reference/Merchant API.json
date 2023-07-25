@@ -1,0 +1,1946 @@
+{
+  "openapi": "3.1.0",
+  "x-stoplight": {
+    "id": "wc3tuz76pwq1m"
+  },
+  "info": {
+    "title": "Application",
+    "version": "2.0",
+    "description": ""
+  },
+  "paths": {
+    "/application/api/merchant/v2/app/initiate": {
+      "post": {
+        "summary": "Initiate",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/initiate_response.json",
+                  "x-examples": {
+                    "Example 1": {
+                      "applicationId": "3a1faa36-a579-465f-b783-39546af17b27",
+                      "invoiceId": "6bc2883a-c938-11ed-afa1-0242ac120002",
+                      "status": "approved",
+                      "maxQualifiedAmount": 2300,
+                      "offers": [
+                        {
+                          "lenderName": "Lender1",
+                          "offerFor": "primary",
+                          "offerId": "21cedea9-7cdd-4bb9-9cf4-03ffd60571af",
+                          "term": 6,
+                          "apr": 9.95,
+                          "plan": "Lender1-Plan-6",
+                          "minAmount": 2000,
+                          "maxAmount": 2300,
+                          "expiry": 1658999664382,
+                          "mdr": 2.5,
+                          "requestedLoanAmount": 2000,
+                          "paymentAmount": "342.98",
+                          "parentOfferId": null,
+                          "isIncentivized": false
+                        },
+                        {
+                          "lenderName": "Lender1",
+                          "offerFor": "primary",
+                          "offerId": "ca96dc5a-0faf-48cd-9f34-6b24d9834a66",
+                          "term": 24,
+                          "apr": 9.95,
+                          "plan": "Lender1-Plan-24",
+                          "minAmount": 2000,
+                          "maxAmount": 2300,
+                          "expiry": 1658999664382,
+                          "mdr": 2.5,
+                          "requestedLoanAmount": 2000,
+                          "paymentAmount": "92.23",
+                          "parentOfferId": null,
+                          "isIncentivized": false,
+                          "isPromoApplicable": true,
+                          "promoFields": {
+                            "term": 6,
+                            "apr": 0,
+                            "paymentAmount": "83.33"
+                          }
+                        },
+                        {
+                          "lenderName": "Lender1",
+                          "offerFor": "primary",
+                          "offerId": "ca96dc5a-0faf-48cd-9f34-6b24d9834a66",
+                          "term": 24,
+                          "apr": 9.95,
+                          "plan": "Lender1-Plan-24",
+                          "minAmount": 2000,
+                          "maxAmount": 2300,
+                          "expiry": 1658999664382,
+                          "mdr": 2.5,
+                          "requestedLoanAmount": 2000,
+                          "paymentAmount": "92.23",
+                          "parentOfferId": null,
+                          "isIncentivized": false
+                        },
+                        {
+                          "lenderName": "Lender2",
+                          "offerFor": "primary",
+                          "offerId": "aeb4c3c1-0dc9-45f6-a0c0-fba309a551c5",
+                          "term": 36,
+                          "apr": 9.95,
+                          "plan": "Lender2-Plan-36",
+                          "minAmount": 2000,
+                          "maxAmount": 2300,
+                          "expiry": 1658999664382,
+                          "mdr": 2.5,
+                          "requestedLoanAmount": 2000,
+                          "paymentAmount": "64.47",
+                          "parentOfferId": null,
+                          "isIncentivized": false
+                        },
+                        {
+                          "lenderName": "Lender2",
+                          "offerFor": "primary",
+                          "offerId": "199e34b8-aa41-40b3-820a-deab5c0522e9",
+                          "term": 60,
+                          "apr": 9.95,
+                          "plan": "Lender2-Plan-60",
+                          "minAmount": 2000,
+                          "maxAmount": 2300,
+                          "expiry": 1658999664382,
+                          "mdr": 2.5,
+                          "requestedLoanAmount": 2000,
+                          "paymentAmount": "42.44",
+                          "parentOfferId": null,
+                          "isIncentivized": false
+                        },
+                        {
+                          "lenderName": "Lender2",
+                          "offerFor": "primary",
+                          "offerId": "199e34b8-aa41-40b3-820a-deab5c0522f7",
+                          "term": 60,
+                          "apr": 8.95,
+                          "plan": "Lender2-Plan-60",
+                          "minAmount": 2000,
+                          "maxAmount": 2300,
+                          "expiry": 1658999664382,
+                          "mdr": 2.5,
+                          "requestedLoanAmount": 2000,
+                          "paymentAmount": "45.44",
+                          "parentOfferId": "199e34b8-aa41-40b3-820a-deab5c0522e9",
+                          "isIncentivized": true
+                        }
+                      ],
+                      "customerFlags": [
+                        "experian_name_mismatch"
+                      ],
+                      "coApplicantFlags": [
+                        "experian_ssn_mismatch"
+                      ]
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "request_id": "266ea41d-adf5-480b-af50-15b940c2b846",
+                      "status": "SUCCESS",
+                      "timestamp": "2019-08-24T14:15:22Z",
+                      "data": {
+                        "id": "string",
+                        "status": "APPROVED",
+                        "max_qualified_amount": 0,
+                        "currency": "string",
+                        "redirect_url": "string",
+                        "offers": [
+                          {
+                            "lender_name": "string",
+                            "offer_for": "string",
+                            "offer_id": "string",
+                            "term_value": 0,
+                            "term_unit": "string",
+                            "apr": 0,
+                            "plan_id": "string",
+                            "min_amount": 0,
+                            "max_amount": 0,
+                            "expiry": "string",
+                            "is_incentivized": true,
+                            "payment_amount": 0,
+                            "payment_frequency_unit": "string",
+                            "payment_frequency_value": "string",
+                            "loan_amount": 0,
+                            "payment_factor": 0
+                          }
+                        ],
+                        "selected_offer": {
+                          "lender_name": "string",
+                          "offer_for": "string",
+                          "offer_id": "string",
+                          "term_value": 0,
+                          "term_unit": "string",
+                          "apr": 0,
+                          "plan_id": "string",
+                          "min_amount": 0,
+                          "max_amount": 0,
+                          "expiry": "string",
+                          "is_incentivized": true,
+                          "payment_amount": 0,
+                          "payment_frequency_unit": "string",
+                          "payment_frequency_value": "string",
+                          "loan_amount": 0,
+                          "payment_factor": 0
+                        },
+                        "requires_stipulations": true,
+                        "requires_review": true,
+                        "applicant_flags": "EXPERIAN_CREDIT_FREEZE",
+                        "co_applicant_flags": [
+                          {
+                            "id": "string",
+                            "flag": "EXPERIAN_CREDIT_FREEZE"
+                          }
+                        ],
+                        "merchant_data": {
+                          "reference_id": "string",
+                          "metadata": {},
+                          "dealer_data": {
+                            "id": "string",
+                            "name": "string",
+                            "address": {
+                              "unit": "string",
+                              "street_address_1": "string",
+                              "street_address_2": "string",
+                              "city": "string",
+                              "state": "st",
+                              "country": "US",
+                              "zip_code": "string"
+                            }
+                          },
+                          "representative_data": {
+                            "id": "string",
+                            "name": "string",
+                            "cell_phone": "string",
+                            "email": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/error_400.json",
+                  "x-examples": {
+                    "Example 1": {
+                      "status": "error",
+                      "error": "Invalid or Missing input",
+                      "timestamp": 1658999664382,
+                      "message": "VALIDATION FAILED: \"customerData.address1\" is required"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "request_id": "266ea41d-adf5-480b-af50-15b940c2b846",
+                      "message": "string",
+                      "timestamp": "2019-08-24T14:15:22Z",
+                      "errors": {
+                        "field_type": "HEADER",
+                        "location": [
+                          "string"
+                        ],
+                        "issue": "REQUIRED"
+                      },
+                      "status": "ERROR"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/error_401.json",
+                  "x-examples": {
+                    "Example 1": {
+                      "error": "Invalid authorization token",
+                      "status": "error",
+                      "timestamp": 1658999664382,
+                      "message": "Invalid authorization token"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "message": "string",
+                      "timestamp": "2019-08-24T14:15:22Z",
+                      "status": "ERROR"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/error_500.json",
+                  "x-examples": {
+                    "Example 1": {
+                      "status": "error",
+                      "error": "Something went wrong",
+                      "timestamp": 1658999664382,
+                      "message": "Something went wrong"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "status": "ERROR",
+                      "message": "string",
+                      "timestamp": "2019-08-24T14:15:22Z",
+                      "request_id": "266ea41d-adf5-480b-af50-15b940c2b846"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "post-application-api-merchant-v1-app-initiate",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "x-examples": {
+                  "Example 1": {
+                    "id": "string",
+                    "merchant_id": "string",
+                    "invoice_id": "6bc2883a-c938-11ed-afa1-0242ac120002",
+                    "store_id": "string",
+                    "requested_loan_amount": "string",
+                    "credit_models": [
+                      "string"
+                    ],
+                    "pre_selected_offer": {
+                      "offer_name": "string"
+                    },
+                    "callback_urls": {
+                      "success": "string",
+                      "decline": "string"
+                    },
+                    "property_data": {
+                      "“street_address1\"": "string",
+                      "“street_address2\"": "string",
+                      "city": "string",
+                      "state": "string",
+                      "zipcode": "string",
+                      "rented_property": true
+                    },
+                    "dealer_data": {
+                      "dealer_number": "string",
+                      "dealer_name": "string",
+                      "dealer_address": "string",
+                      "sales_person_name": "string",
+                      "sales_person_phone": "string",
+                      "sales_person_email": "string",
+                      "account_type": "string",
+                      "account_number": "string",
+                      "routing_number": "string"
+                    },
+                    "customer_data": {
+                      "first_name": "string",
+                      "last_name": "string",
+                      "date_of_birth": "string",
+                      "ssn": "string",
+                      "email": "string",
+                      "phone": "string",
+                      "home_phone": "string",
+                      "street_address1": "string",
+                      "street_address2": "string",
+                      "city": "string",
+                      "state": "string",
+                      "ip_address": "string",
+                      "zipcode": "string",
+                      "monthly_income": "string",
+                      "other_income": "string",
+                      "nonTaxable_indicator": true,
+                      "employment_details": {
+                        "occupation": "string",
+                        "employment_status": "string",
+                        "employer_name": "string",
+                        "employer_phone": "string",
+                        "employment_start_date": "string"
+                      }
+                    },
+                    "co_applicant_data": {
+                      "first_name": "string",
+                      "last_name": "string",
+                      "date_of_birth": "string",
+                      "ssn": "string",
+                      "email": "string",
+                      "phone": "string",
+                      "home_phone": "string",
+                      "street_address1": "string",
+                      "street_address2": "string",
+                      "city": "string",
+                      "state": "string",
+                      "ip_address": "string",
+                      "zipcode": "string",
+                      "monthly_income": "string",
+                      "other_income": "string",
+                      "nonTaxable_indicator": true,
+                      "employment_details": {
+                        "occupation": "string",
+                        "employment_status": "string",
+                        "employer_name": "string",
+                        "employer_phone": "string",
+                        "employment_start_date": "string"
+                      }
+                    },
+                    "metadata": {
+                      "merchant_reference_code": "string",
+                      "cart_details": {
+                        "items": [
+                          {
+                            "item_name": "string",
+                            "item_description": "string",
+                            "item_value": 0,
+                            "SKU": "string"
+                          }
+                        ]
+                      },
+                      "discount": 0,
+                      "shipping": 0,
+                      "taxes": 0,
+                      "shipping_details": {}
+                    },
+                    "shipping_details": "string"
+                  }
+                },
+                "properties": {
+                  "request_id": {
+                    "$ref": "../../models/request_id.json",
+                    "x-stoplight": {
+                      "id": "20don43mb5onu"
+                    }
+                  },
+                  "merchant_id": {
+                    "$ref": "../../models/merchant_id.json"
+                  },
+                  "store_id": {
+                    "$ref": "../../models/store_id.json"
+                  },
+                  "amount": {
+                    "$ref": "../../models/amount.json",
+                    "x-stoplight": {
+                      "id": "d5b3g7nshsz9v"
+                    }
+                  },
+                  "credit_models": {
+                    "type": "array",
+                    "description": "Array of Lender names for which the applicant needs to be evaluated.",
+                    "items": {
+                      "x-stoplight": {
+                        "id": "ffc7xb6i59sub"
+                      },
+                      "enum": []
+                    }
+                  },
+                  "applicant": {
+                    "$ref": "../../models/applicant.json",
+                    "x-stoplight": {
+                      "id": "9zgi75bnccxkm"
+                    }
+                  },
+                  "co_applicants": {
+                    "type": "array",
+                    "description": "array of applicants data",
+                    "x-stoplight": {
+                      "id": "2sq0u51ged3nh"
+                    },
+                    "items": {
+                      "$ref": "../../models/applicant.json",
+                      "x-stoplight": {
+                        "id": "z0wrriey62x6g"
+                      }
+                    }
+                  },
+                  "currency": {
+                    "type": "string",
+                    "x-stoplight": {
+                      "id": "kiqout6g1dbcp"
+                    }
+                  },
+                  "merchant_data": {
+                    "$ref": "../../models/merchant_data.json",
+                    "x-stoplight": {
+                      "id": "ayxvhai9fc7bh"
+                    }
+                  },
+                  "purchase_data": {
+                    "$ref": "../../models/purchase_data.json",
+                    "x-stoplight": {
+                      "id": "kbghyj2xpql0x"
+                    }
+                  }
+                },
+                "required": [
+                  "merchant_id",
+                  "store_id",
+                  "amount",
+                  "applicant",
+                  "currency"
+                ]
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {
+                    "id": "string",
+                    "request_id": "266ea41d-adf5-480b-af50-15b940c2b846",
+                    "merchant_id": "string",
+                    "store_id": "string",
+                    "amount": 0,
+                    "credit_models": [
+                      null
+                    ],
+                    "applicant": {
+                      "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+                      "first_name": "string",
+                      "last_name": "string",
+                      "email": "string",
+                      "cell_phone": "string",
+                      "ssn": "string",
+                      "date_of_birth": "string",
+                      "ip_address": "string",
+                      "address": {
+                        "unit": "string",
+                        "street_address_1": "string",
+                        "street_address_2": "string",
+                        "city": "string",
+                        "state": "st",
+                        "country": "US",
+                        "zip_code": "string"
+                      },
+                      "employment_details": {
+                        "occupation": "string",
+                        "employment_type": "string",
+                        "employer_name": "string",
+                        "employer_phone": "string",
+                        "employer_email": "string",
+                        "employment_start_date": "string"
+                      },
+                      "financial_details": {
+                        "monthly_income": 0,
+                        "taxable_indicator": true,
+                        "other_income": 0
+                      }
+                    },
+                    "co_applicants": [
+                      {
+                        "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+                        "first_name": "string",
+                        "last_name": "string",
+                        "email": "string",
+                        "cell_phone": "string",
+                        "ssn": "string",
+                        "date_of_birth": "string",
+                        "ip_address": "string",
+                        "address": {
+                          "unit": "string",
+                          "street_address_1": "string",
+                          "street_address_2": "string",
+                          "city": "string",
+                          "state": "st",
+                          "country": "US",
+                          "zip_code": "string"
+                        },
+                        "employment_details": {
+                          "occupation": "string",
+                          "employment_type": "string",
+                          "employer_name": "string",
+                          "employer_phone": "string",
+                          "employer_email": "string",
+                          "employment_start_date": "string"
+                        },
+                        "financial_details": {
+                          "monthly_income": 0,
+                          "taxable_indicator": true,
+                          "other_income": 0
+                        }
+                      }
+                    ],
+                    "currency": "string",
+                    "merchant_data": {
+                      "reference_id": "string",
+                      "metadata": {},
+                      "dealer_data": {
+                        "id": "string",
+                        "name": "string",
+                        "address": {
+                          "unit": "string",
+                          "street_address_1": "string",
+                          "street_address_2": "string",
+                          "city": "string",
+                          "state": "st",
+                          "country": "US",
+                          "zip_code": "string"
+                        }
+                      },
+                      "representative_data": {
+                        "id": "string",
+                        "name": "string",
+                        "cell_phone": "string",
+                        "email": "string"
+                      }
+                    },
+                    "purchase_data": {
+                      "billing_details": {
+                        "first_name": "string",
+                        "last_name": "string",
+                        "cell_phone": "string",
+                        "email": "string",
+                        "address": {
+                          "unit": "string",
+                          "street_address_1": "string",
+                          "street_address_2": "string",
+                          "city": "string",
+                          "state": "st",
+                          "country": "US",
+                          "zip_code": "string"
+                        }
+                      },
+                      "shipping_details": {
+                        "first_name": "string",
+                        "last_name": "string",
+                        "cell_phone": "string",
+                        "email": "string",
+                        "address": {
+                          "unit": "string",
+                          "street_address_1": "string",
+                          "street_address_2": "string",
+                          "city": "string",
+                          "state": "st",
+                          "country": "US",
+                          "zip_code": "string"
+                        }
+                      },
+                      "cart_details": {
+                        "items": [
+                          null
+                        ],
+                        "discount": 0,
+                        "shipping": 0,
+                        "taxes": 0,
+                        "net_amount": "string",
+                        "currency": "string"
+                      },
+                      "property_details": {
+                        "address": {
+                          "unit": "string",
+                          "street_address_1": "string",
+                          "street_address_2": "string",
+                          "city": "string",
+                          "state": "st",
+                          "country": "US",
+                          "zip_code": "string"
+                        },
+                        "is_rented": true
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "description": ""
+        },
+        "description": "This API allows the merchant to evaluate a customer profile with the lender on the Skeps platform, returns Accepted/Rejected status, a list of offers, and pre-approved loan information from the lender. The live offers generated for the customer get expired after a period defined by the lender partner.\n",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Authorization ",
+            "description": "Bearer[accessToken]",
+            "required": true
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/application/api/merchant/v2/app/fund": {
+      "post": {
+        "summary": "Fund",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/fund_response_200.json",
+                  "x-examples": {
+                    "Example 1": {
+                      "applicationId": "3a1faa36-a579-465f-b783-39546af17b27",
+                      "status": "success"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "request_id": "266ea41d-adf5-480b-af50-15b940c2b846",
+                      "timestamp": "2019-08-24T14:15:22Z",
+                      "status": "SUCCESS",
+                      "data": {
+                        "id": "string",
+                        "status": "FUNDED",
+                        "card_details": {
+                          "pan": "string",
+                          "card_holder_name": "string",
+                          "cvv": "stri",
+                          "pin": "stri",
+                          "expiry": {
+                            "month": "string",
+                            "year": "string"
+                          },
+                          "valid_till": "2019-08-24T14:15:22Z",
+                          "is_avs_enabled": true,
+                          "address": {
+                            "unit": "string",
+                            "street_address_1": "string",
+                            "street_address_2": "string",
+                            "city": "string",
+                            "state": "st",
+                            "country": "US",
+                            "zip_code": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/error_400.json",
+                  "x-examples": {
+                    "Example 1": {
+                      "status": "error",
+                      "timestamp": 1658999664382,
+                      "error": "invalid invoice amount",
+                      "message": "The invoice amount is more than the total payable amount"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "request_id": "266ea41d-adf5-480b-af50-15b940c2b846",
+                      "message": "string",
+                      "timestamp": "2019-08-24T14:15:22Z",
+                      "errors": {
+                        "field_type": "HEADER",
+                        "location": [
+                          "string"
+                        ],
+                        "issue": "REQUIRED"
+                      },
+                      "status": "ERROR"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/error_401.json",
+                  "x-examples": {
+                    "Example 1": {
+                      "status": "error",
+                      "timestamp": 1658999664382,
+                      "error": "invalid authorization token",
+                      "message": "Invalid authorization token"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "message": "string",
+                      "timestamp": "2019-08-24T14:15:22Z",
+                      "status": "ERROR"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/error_500.json",
+                  "x-examples": {
+                    "Example 1": {
+                      "status": "error",
+                      "timestamp": 1658999664382,
+                      "error": "something went wrong",
+                      "message": "Something went wrong"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "status": "ERROR",
+                      "message": "string",
+                      "timestamp": "2019-08-24T14:15:22Z",
+                      "request_id": "266ea41d-adf5-480b-af50-15b940c2b846"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "post-application-api-merchant-v1-app-fund",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "../../models/fund_request.json",
+                "x-examples": {
+                  "Example 1": {
+                    "id": "string",
+                    "invoiceAmount": 0,
+                    "dealerData": {
+                      "dealerNumber": "string",
+                      "dealerName": "string",
+                      "dealerAddress": "string",
+                      "salesPersonName": "string",
+                      "salesPersonPhone": "string",
+                      "salesPersonEmail": "string",
+                      "accountType": "savings,checking",
+                      "accountNumber": "string",
+                      "routingNumber": "string"
+                    }
+                  }
+                }
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {
+                    "id": "string",
+                    "request_id": "266ea41d-adf5-480b-af50-15b940c2b846",
+                    "merchant_id": "string",
+                    "store_id": "string",
+                    "amount": 0,
+                    "currency": "USD",
+                    "payment_data": {
+                      "account_number": "string",
+                      "routing_number": "string",
+                      "account_type": {
+                        "id": "CHECKING"
+                      },
+                      "processing_info": {}
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "This API allows the merchant to initiate the release of funds for an application after job completion or product shipment. The API can only be called if the application is in \"PENDING_FUNDING\" status. The merchant can use the Status webhook as mentioned in the Webhooks section to know the status of the application as it goes through different state transitions.\n\n",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Authorization",
+            "description": "Bearer[accessToken]",
+            "required": true
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/application/api/merchant/v2/app/submit": {
+      "post": {
+        "summary": "Submit",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK - Offers",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/submit_response.json"
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "request_id": "266ea41d-adf5-480b-af50-15b940c2b846",
+                      "status": "SUCCESS",
+                      "timestamp": "2019-08-24T14:15:22Z",
+                      "data": {
+                        "id": "string",
+                        "status": "APPROVED",
+                        "max_qualified_amount": 0,
+                        "currency": "string",
+                        "redirect_url": "string",
+                        "offers": [
+                          {
+                            "lender_name": "string",
+                            "offer_for": "string",
+                            "offer_id": "string",
+                            "term_value": 0,
+                            "term_unit": "string",
+                            "apr": 0,
+                            "plan_id": "string",
+                            "min_amount": 0,
+                            "max_amount": 0,
+                            "expiry": "string",
+                            "is_incentivized": true,
+                            "payment_amount": 0,
+                            "payment_frequency_unit": "string",
+                            "payment_frequency_value": "string",
+                            "loan_amount": 0,
+                            "payment_factor": 0
+                          }
+                        ],
+                        "selected_offer": {
+                          "lender_name": "string",
+                          "offer_for": "string",
+                          "offer_id": "string",
+                          "term_value": 0,
+                          "term_unit": "string",
+                          "apr": 0,
+                          "plan_id": "string",
+                          "min_amount": 0,
+                          "max_amount": 0,
+                          "expiry": "string",
+                          "is_incentivized": true,
+                          "payment_amount": 0,
+                          "payment_frequency_unit": "string",
+                          "payment_frequency_value": "string",
+                          "loan_amount": 0,
+                          "payment_factor": 0
+                        },
+                        "requires_stipulations": true,
+                        "requires_review": true,
+                        "applicant_flags": "EXPERIAN_CREDIT_FREEZE",
+                        "co_applicant_flags": [
+                          {
+                            "id": "string",
+                            "flag": "EXPERIAN_CREDIT_FREEZE"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/error_400.json",
+                  "x-examples": {
+                    "Example 1": {
+                      "status": "error",
+                      "timestamp": 1658999664382,
+                      "error": "loan amount",
+                      "message": "requested loan amount can’t be out of range of min & max amount"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "status": "error",
+                      "timestamp": 1658999664382,
+                      "error": "loan amount",
+                      "message": "requested loan amount can’t be out of range of min & max amount"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/error_401.json",
+                  "x-examples": {
+                    "Example 1": {
+                      "status": "error",
+                      "timestamp": 1658999664382,
+                      "error": "invalid authorization token",
+                      "message": "Invalid authorization token"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "status": "error",
+                      "timestamp": 1658999664382,
+                      "error": "invalid authorization token",
+                      "message": "Invalid authorization token"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/error_500.json",
+                  "x-examples": {
+                    "Example 1": {
+                      "status": "error",
+                      "timestamp": 1658999664382,
+                      "error": "something went wrong",
+                      "message": "Something went wrong"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "status": "error",
+                      "timestamp": 1658999664382,
+                      "error": "something went wrong",
+                      "message": "Something went wrong"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "post-application-api-merchant-v1-app-submit",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "x-examples": {
+                  "Example 1": {
+                    "applicationId": "3a1faa36-a579-465f-b783-39546af17b27",
+                    "offerId": "199e34b8-aa41-40b3-820a-deab5c0522e9",
+                    "requestedLoanAmount": 8000
+                  }
+                },
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "description": "The applicationId received in the checkOffers API",
+                    "x-stoplight": {
+                      "id": "ehospitqni972"
+                    }
+                  },
+                  "request_id": {
+                    "$ref": "../../models/request_id.json",
+                    "x-stoplight": {
+                      "id": "ocs19ueli0qbg"
+                    }
+                  },
+                  "merchant_id": {
+                    "$ref": "../../models/merchant_id.json",
+                    "x-stoplight": {
+                      "id": "0bxem6be9fftd"
+                    }
+                  },
+                  "store_id": {
+                    "$ref": "../../models/store_id.json",
+                    "x-stoplight": {
+                      "id": "c67uxzirglsql"
+                    }
+                  },
+                  "offer_id": {
+                    "type": "string",
+                    "description": "The offerId for offer selected by the customer that is mandotry for some merchant",
+                    "x-stoplight": {
+                      "id": "2a8pd01q2uisu"
+                    }
+                  },
+                  "amount": {
+                    "$ref": "../../models/amount.json",
+                    "description": "Requested loan amount for the application",
+                    "x-stoplight": {
+                      "id": "ms6imm5ygc2mk"
+                    }
+                  },
+                  "plan_id": {
+                    "type": "string",
+                    "x-stoplight": {
+                      "id": "fcfjqu202wo3s"
+                    }
+                  },
+                  "lender": {
+                    "type": "string",
+                    "x-stoplight": {
+                      "id": "b52kypakbc4vw"
+                    }
+                  }
+                },
+                "required": [
+                  "id",
+                  "merchant_id",
+                  "store_id",
+                  "amount"
+                ]
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {
+                    "id": "string",
+                    "request_id": "266ea41d-adf5-480b-af50-15b940c2b846",
+                    "merchant_id": "string",
+                    "store_id": "string",
+                    "offer_id": "string",
+                    "amount": 0,
+                    "plan_id": "string",
+                    "lender": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "This API allows the merchant to fetch the redirect URL after the initiate API returns success. This is also used to request a change in the loan amount before the customer signs the contract. Loan amount change can be requested by sending a new loan amount with the same applicationId within the offer expiry period.\n",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Authorization",
+            "description": "Bearer[accessToken]",
+            "required": true
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/application/api/merchant/v2/order/finalize": {
+      "post": {
+        "summary": "Finalize",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/finalize_response_200.json"
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "request_id": "266ea41d-adf5-480b-af50-15b940c2b846",
+                      "timestamp": "2019-08-24T14:15:22Z",
+                      "status": "FINALIZED",
+                      "data": {
+                        "id": "string",
+                        "status": "FINALIZED"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/error_400.json"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/error_401.json"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/error_409.json"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/error_500.json"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "post-application-api-merchant-v2-order-finalize",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "../../models/finalize_request.json"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {
+                    "id": "string",
+                    "merchant_id": "string",
+                    "store_id": "string",
+                    "request_id": "266ea41d-adf5-480b-af50-15b940c2b846"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "in": "header",
+          "name": "Authorization",
+          "description": "Bearer[accessToken]",
+          "required": true
+        }
+      ]
+    },
+    "/application/api/merchant/v2/app/refund": {
+      "post": {
+        "summary": "Refund",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/refund_response_200.json",
+                  "x-examples": {
+                    "Example 1": {
+                      "applicationId": "3a1faa36-a579-465f-b783-39546af17b27",
+                      "status": "success"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "request_id": "266ea41d-adf5-480b-af50-15b940c2b846",
+                      "timestamp": "2019-08-24T14:15:22Z",
+                      "status": "SUCCESS",
+                      "data": {
+                        "id": "string",
+                        "status": "REFUNDED"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/error_400.json",
+                  "x-examples": {
+                    "Example 1": {
+                      "status": "error",
+                      "timestamp": 1658999664382,
+                      "error": "invalid refund amount",
+                      "message": "The refund amount is more than the funded amount"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "status": "error",
+                      "timestamp": 1658999664382,
+                      "error": "invalid refund amount",
+                      "message": "The refund amount is more than the funded amount"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/error_401.json",
+                  "x-examples": {
+                    "Example 1": {
+                      "status": "error",
+                      "timestamp": 1658999664382,
+                      "error": "invalid authorization token",
+                      "message": "Invalid authorization token"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "status": "error",
+                      "timestamp": 1658999664382,
+                      "error": "invalid authorization token",
+                      "message": "Invalid authorization token"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/error_500.json",
+                  "x-examples": {
+                    "Example 1": {
+                      "status": "error",
+                      "timestamp": 1658999664382,
+                      "error": "something went wrong",
+                      "message": "Something went wrong"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "status": "error",
+                      "timestamp": 1658999664382,
+                      "error": "something went wrong",
+                      "message": "Something went wrong"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "post-application-api-merchant-v1-app-refund",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "../../models/refund.json",
+                "x-examples": {
+                  "Example 1": {
+                    "applicationId": "3a1faa36-a579-465f-b783-39546af17b27",
+                    "refundAmount": 2000
+                  }
+                }
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {
+                    "id": "string",
+                    "request_id": "266ea41d-adf5-480b-af50-15b940c2b846",
+                    "merchant_id": "string",
+                    "store_id": "string",
+                    "amount": 0,
+                    "currency": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "This API allows the merchant to initiate a refund of the loan for a funded application. The merchant can request a partial or full amount refund, multiple times, for the loan using this API. The API can only be called if the application is in \"FUNDED\" or “REFUND_INITIATED” or “REFUNDED” status\n\n",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Authorization",
+            "description": "Bearer[accessToken]",
+            "required": true
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/application/api/merchant/v2/app/cancel": {
+      "post": {
+        "summary": "Cancel",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/cancel_response.json",
+                  "x-examples": {
+                    "Example 1": {
+                      "id": "3a1faa36-a579-465f-b783-39546af17b27",
+                      "status": "success"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "request_id": "string",
+                      "timestamp": "string",
+                      "status": "string",
+                      "data": {
+                        "id": "string",
+                        "status": "CANCELLED"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/error_400.json",
+                  "x-examples": {
+                    "Example 1": {
+                      "status": "error",
+                      "timestamp": 1658999664382,
+                      "error": "invalid Request",
+                      "message": "The application can only be canceled after contract signing and before making a funding request"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "status": "error",
+                      "timestamp": 1658999664382,
+                      "error": "invalid Request",
+                      "message": "The application can only be canceled after contract signing and before making a funding request"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/error_401.json",
+                  "x-examples": {
+                    "Example 1": {
+                      "status": "error",
+                      "timestamp": 1658999664382,
+                      "error": "invalid authorization token",
+                      "message": "Invalid authorization token"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "status": "error",
+                      "timestamp": 1658999664382,
+                      "error": "invalid authorization token",
+                      "message": "Invalid authorization token"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/error_500.json",
+                  "x-examples": {
+                    "Example 1": {
+                      "status": "error",
+                      "timestamp": 1658999664382,
+                      "error": "something went wrong",
+                      "message": "Something went wrong"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "status": "error",
+                      "timestamp": 1658999664382,
+                      "error": "something went wrong",
+                      "message": "Something went wrong"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "post-application-api-merchant-v1-app-cancel",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "../../models/cancel.json",
+                "x-examples": {
+                  "Example 1": {
+                    "id": "3a1faa36-a579-465f-b783-39546af17b27"
+                  }
+                }
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {
+                    "id": "string",
+                    "merchant_id": "string",
+                    "store_id": "string",
+                    "request_id": "266ea41d-adf5-480b-af50-15b940c2b846"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "This API allows the merchant to initiate the cancellation of the loan post contract signing and before the funding request is made. The API can only be called if the application status is in \"PENDING_FUNDING\". An application in the \"APPROVED\" status is not required to be cancelled as there is no contract signed by the customer for that application.\n\n",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Authorization",
+            "description": "Bearer[accessToken]",
+            "required": true
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/application/api/application/v2/app/verify": {
+      "post": {
+        "summary": "Verify",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/verify_response_200.json",
+                  "x-examples": {
+                    "Example 1": {
+                      "verification_status": "success",
+                      "success": "true"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "request_id": "266ea41d-adf5-480b-af50-15b940c2b846",
+                      "timestamp": "2019-08-24T14:15:22Z",
+                      "status": "SUCCESS",
+                      "data": {
+                        "id": "string",
+                        "status": "VERIFIED"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/error_400.json"
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "request_id": "266ea41d-adf5-480b-af50-15b940c2b846",
+                      "message": "string",
+                      "timestamp": "2019-08-24T14:15:22Z",
+                      "errors": {
+                        "field_type": "HEADER",
+                        "location": [
+                          "string"
+                        ],
+                        "issue": "REQUIRED"
+                      },
+                      "status": "ERROR"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/error_401.json"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/error_500.json"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "post-application-api-order-v2-order-verify",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "../../models/verify.json"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {
+                    "id": "string",
+                    "request_id": "266ea41d-adf5-480b-af50-15b940c2b846",
+                    "store_id": "string",
+                    "merchant_id": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "in": "header",
+          "name": "Authorization",
+          "description": "Bearer[accessToken]",
+          "required": true
+        }
+      ]
+    },
+    "/application/api/merchant/v2/app/revise": {
+      "post": {
+        "summary": "Revise",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/revise_response_200.json"
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "request_id": "266ea41d-adf5-480b-af50-15b940c2b846",
+                      "timestamp": "2019-08-24T14:15:22Z",
+                      "status": "SUCCESS",
+                      "data": {
+                        "id": "string",
+                        "status": "APPROVED",
+                        "redirect_url": "string",
+                        "offers": [
+                          {
+                            "lender_name": "string",
+                            "offer_for": "string",
+                            "offer_id": "string",
+                            "term_value": 0,
+                            "term_unit": "string",
+                            "apr": 0,
+                            "plan_id": "string",
+                            "min_amount": 0,
+                            "max_amount": 0,
+                            "expiry": "string",
+                            "is_incentivized": true,
+                            "payment_amount": 0,
+                            "payment_frequency_unit": "string",
+                            "payment_frequency_value": "string",
+                            "loan_amount": 0,
+                            "payment_factor": 0
+                          }
+                        ],
+                        "selected_offer": {
+                          "lender_name": "string",
+                          "offer_for": "string",
+                          "offer_id": "string",
+                          "term_value": 0,
+                          "term_unit": "string",
+                          "apr": 0,
+                          "plan_id": "string",
+                          "min_amount": 0,
+                          "max_amount": 0,
+                          "expiry": "string",
+                          "is_incentivized": true,
+                          "payment_amount": 0,
+                          "payment_frequency_unit": "string",
+                          "payment_frequency_value": "string",
+                          "loan_amount": 0,
+                          "payment_factor": 0
+                        },
+                        "requires_stipulations": true,
+                        "requires_review": true
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/error_400.json"
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "request_id": "266ea41d-adf5-480b-af50-15b940c2b846",
+                      "message": "string",
+                      "timestamp": "2019-08-24T14:15:22Z",
+                      "errors": {
+                        "field_type": "HEADER",
+                        "location": [
+                          "string"
+                        ],
+                        "issue": "REQUIRED"
+                      },
+                      "status": "ERROR"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/error_401.json"
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "message": "string",
+                      "timestamp": "2019-08-24T14:15:22Z",
+                      "status": "ERROR"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/error_409.json"
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "request_id": "266ea41d-adf5-480b-af50-15b940c2b846",
+                      "timestamp": "2019-08-24T14:15:22Z",
+                      "status": "ERROR",
+                      "message": "string",
+                      "code": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/error_500.json"
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "status": "ERROR",
+                      "message": "string",
+                      "timestamp": "2019-08-24T14:15:22Z",
+                      "request_id": "266ea41d-adf5-480b-af50-15b940c2b846"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "post-application-api-merchant-v2-app-revise",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "x-stoplight": {
+                      "id": "yfw66bxnjrf2g"
+                    }
+                  },
+                  "request_id": {
+                    "$ref": "../../models/request_id.json",
+                    "x-stoplight": {
+                      "id": "9b6w9v322wbsc"
+                    }
+                  },
+                  "merchant_id": {
+                    "$ref": "../../models/merchant_id.json",
+                    "x-stoplight": {
+                      "id": "ih38js3g6lpnz"
+                    }
+                  },
+                  "store_id": {
+                    "$ref": "../../models/store_id.json",
+                    "x-stoplight": {
+                      "id": "0lwneyk3fi14d"
+                    }
+                  },
+                  "currency": {
+                    "x-stoplight": {
+                      "id": "3x1cjzxflaj2u"
+                    },
+                    "enum": [
+                      "USD"
+                    ]
+                  },
+                  "amount": {
+                    "$ref": "../../models/amount.json",
+                    "x-stoplight": {
+                      "id": "65keaufk0jw37"
+                    }
+                  }
+                },
+                "required": [
+                  "id",
+                  "merchant_id",
+                  "store_id",
+                  "currency",
+                  "amount"
+                ]
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {
+                    "id": "string",
+                    "request_id": "string",
+                    "merchant_id": "string",
+                    "store_id": "string",
+                    "currency": "string",
+                    "amount": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-extension-1": null
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "in": "header",
+          "name": "Authorization",
+          "description": "Bearer[accessToken]",
+          "required": true
+        }
+      ]
+    }
+  },
+  "components": {
+    "schemas": {},
+    "securitySchemes": {}
+  },
+  "servers": []
+}

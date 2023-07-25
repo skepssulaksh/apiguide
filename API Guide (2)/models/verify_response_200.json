@@ -1,0 +1,93 @@
+{
+  "title": "verify_response_200",
+  "x-stoplight": {
+    "id": "16xmrvzrxo51e"
+  },
+  "type": "object",
+  "properties": {
+    "request_id": {
+      "$ref": "./request_id.json",
+      "x-stoplight": {
+        "id": "3so9ra05iuvso"
+      }
+    },
+    "timestamp": {
+      "$ref": "./timestamp.json",
+      "x-stoplight": {
+        "id": "bqav04ca5noof"
+      }
+    },
+    "status": {
+      "x-stoplight": {
+        "id": "4gpjewr5ra57z"
+      },
+      "enum": [
+        "SUCCESS"
+      ],
+      "description": "This is the response status of the API."
+    },
+    "data": {
+      "type": "object",
+      "x-stoplight": {
+        "id": "7oncg8jwz0t1a"
+      },
+      "properties": {
+        "id": {
+          "type": "string",
+          "x-stoplight": {
+            "id": "mpc6pvcs53wdk"
+          },
+          "description": "This is the ID received in Initiate response."
+        },
+        "status": {
+          "x-stoplight": {
+            "id": "4h73f5yzen39l"
+          },
+          "enum": [
+            "VERIFIED",
+            "NOT_READY_TO_FUND",
+            "CREDIT_LIMIT_EXCEEDED",
+            "FUNDS_UNDER_PROCESSING"
+          ],
+          "description": "This is the response status of verify."
+        },
+        "fund_summary": {
+          "type": "object",
+          "x-stoplight": {
+            "id": "i9qnl3b9kufps"
+          },
+          "properties": {
+            "contract_amount": {
+              "type": "string",
+              "x-stoplight": {
+                "id": "1the8kzzbyu1s"
+              },
+              "description": "Total contract amount."
+            },
+            "funds_under_process": {
+              "type": "string",
+              "x-stoplight": {
+                "id": "ww0idqjq83f1x"
+              },
+              "description": "Amount under process."
+            },
+            "funds_available": {
+              "type": "string",
+              "x-stoplight": {
+                "id": "fgk7vnopwa0f6"
+              },
+              "description": "Funds remaining."
+            },
+            "funded_amount": {
+              "type": "string",
+              "x-stoplight": {
+                "id": "eu2o9x0df061v"
+              },
+              "description": "Total amount funded."
+            }
+          }
+        }
+      }
+    }
+  }
+}

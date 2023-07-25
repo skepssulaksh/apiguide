@@ -1,0 +1,58 @@
+{
+  "type": "object",
+  "x-stoplight": {
+    "id": "e46f09486b785"
+  },
+  "x-examples": {
+    "Example 1": {
+      "timestamp": "string",
+      "merchant_data": {
+        "reference_id": "string",
+        "metadata": {},
+        "dealer_data": {
+          "id": "string",
+          "name": "string",
+          "address": {
+            "unit": "string",
+            "street_address_1": "string",
+            "street_address_2": "string",
+            "city": "string",
+            "state": "st",
+            "country": "US",
+            "zip_code": "string"
+          }
+        },
+        "representative_data": {
+          "id": "string",
+          "name": "string",
+          "cell_phone": "string",
+          "email": "string"
+        }
+      },
+      "id": "string",
+      "request_id": "266ea41d-adf5-480b-af50-15b940c2b846",
+      "status": "string",
+      "link": "string"
+    }
+  },
+  "properties": {
+    "id": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "2h8r7od7qcx6u"
+      }
+    },
+    "merchant_data": {
+      "$ref": "./merchant_data.json",
+      "x-stoplight": {
+        "id": "zd7ue99dzeuc1"
+      }
+    },
+    "link": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "36vs3uclfqjx1"
+      }
+    }
+  }
+}

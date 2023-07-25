@@ -1,0 +1,41 @@
+{
+  "title": "error_409",
+  "x-stoplight": {
+    "id": "hf2iwr8kt4fd6"
+  },
+  "type": "object",
+  "properties": {
+    "request_id": {
+      "$ref": "./request_id.json",
+      "x-stoplight": {
+        "id": "l5ipsm4jcid0l"
+      }
+    },
+    "timestamp": {
+      "$ref": "./timestamp.json",
+      "x-stoplight": {
+        "id": "tq43nor2lx31y"
+      }
+    },
+    "status": {
+      "x-stoplight": {
+        "id": "ond5airnx0cog"
+      },
+      "enum": [
+        "ERROR"
+      ]
+    },
+    "message": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "xto600opcnd4c"
+      }
+    },
+    "code": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "ipeps5axtx8jq"
+      }
+    }
+  }
+}

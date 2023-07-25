@@ -1,0 +1,253 @@
+{
+  "openapi": "3.1.0",
+  "x-stoplight": {
+    "id": "wsbgdx0x0j73l"
+  },
+  "info": {
+    "title": "Authentication",
+    "version": "2.0",
+    "description": ""
+  },
+  "paths": {
+    "/application/api/merchant/v2/auth/token": {
+      "post": {
+        "summary": "Create Token",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "x-examples": {
+                    "Example 1": {
+                      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRJZCI6IjM3ZWU1Mjk1LWRiZWYtNDM0MC1hOTVjLWE0NTIyZGJmNzIyOCIsInRva2VuQ3JlYXRpb25EYXRlVGltZSI6IjIwMjItMDctMTggMDY6MDM6MjguOTM4IiwiaWF0IjoxNjU4MTI0MjA4LCJleHAiOjE2NTgyMTA2MDh9.MyjaN_Kg_LeHuhp-S_XvYs13JVli4ISCSyYOVp0_6vQ",
+                      "tokenType": "Bearer",
+                      "expiresIn": 86400
+                    }
+                  },
+                  "properties": {
+                    "request_id": {
+                      "type": "string",
+                      "x-stoplight": {
+                        "id": "m0ri7pmmk3wiy"
+                      },
+                      "format": "uuid"
+                    },
+                    "timestamp": {
+                      "$ref": "../../models/timestamp.json",
+                      "x-stoplight": {
+                        "id": "mobbmodej6l6a"
+                      }
+                    },
+                    "data": {
+                      "type": "object",
+                      "x-stoplight": {
+                        "id": "1sv5a6sto21ne"
+                      },
+                      "properties": {
+                        "access_token": {
+                          "type": "string",
+                          "x-stoplight": {
+                            "id": "s0gi44b9mh1co"
+                          },
+                          "description": "Token string to be used by other APIs in the authorization header "
+                        },
+                        "token_type": {
+                          "type": "string",
+                          "x-stoplight": {
+                            "id": "57kw59nlgt898"
+                          },
+                          "description": "Hardcoded to \"Bearer\" "
+                        },
+                        "expires_in": {
+                          "type": "integer",
+                          "x-stoplight": {
+                            "id": "3zgshgz7l213s"
+                          },
+                          "description": "The number of seconds for which the token is valid "
+                        }
+                      }
+                    },
+                    "status": {
+                      "x-stoplight": {
+                        "id": "rwowu5bnpc11r"
+                      },
+                      "enum": [
+                        "SUCCESS"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "request_id"
+                  ]
+                },
+                "examples": {
+                  "Example 3": {
+                    "value": {
+                      "request_id": "266ea41d-adf5-480b-af50-15b940c2b846",
+                      "timestamp": "2019-08-24T14:15:22Z",
+                      "data": {
+                        "access_token": "string",
+                        "token_type": "string",
+                        "expires_in": 0
+                      },
+                      "status": "SUCCESS"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/error_400.json",
+                  "x-examples": {
+                    "Example 1": {
+                      "status": 400,
+                      "error": "Bad Request",
+                      "message": "Bad Request",
+                      "timestamp": 1658126099358
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "request_id": "266ea41d-adf5-480b-af50-15b940c2b846",
+                      "message": "string",
+                      "timestamp": "2019-08-24T14:15:22Z",
+                      "errors": {
+                        "field_type": "HEADER",
+                        "location": [
+                          "string"
+                        ],
+                        "issue": "REQUIRED"
+                      },
+                      "status": "ERROR"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/error_401.json",
+                  "x-examples": {
+                    "Example 1": {
+                      "status": 401,
+                      "error": "unauthorized",
+                      "message": "unauthorized",
+                      "timestamp": 1658126099358
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "message": "string",
+                      "timestamp": "2019-08-24T14:15:22Z",
+                      "status": "ERROR"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/error_500.json"
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "status": "ERROR",
+                      "message": "string",
+                      "timestamp": "2019-08-24T14:15:22Z",
+                      "request_id": "266ea41d-adf5-480b-af50-15b940c2b846"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "post-application-api-merchant-v1-auth-token",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "x-examples": {
+                  "Example 1": {
+                    "merchant_id": "string",
+                    "store_id": "string",
+                    "client_id": "37ee5295-dbef-4340-a95c-a4522dbf7228",
+                    "client_secret": "sxT6fIFcHkc1wqwIyVrDBNIC1657cv",
+                    "grant_type": "client_credentials"
+                  }
+                },
+                "properties": {
+                  "merchant_id": {
+                    "$ref": "../../models/merchant_id.json"
+                  },
+                  "store_id": {
+                    "$ref": "../../models/store_id.json"
+                  },
+                  "client_id": {
+                    "type": "string",
+                    "description": "This will be provided by Skeps"
+                  },
+                  "client_secret": {
+                    "type": "string",
+                    "description": "This will be provided by Skeps"
+                  },
+                  "grant_type": {
+                    "enum": [
+                      "CLIENT_CREDENTIALS"
+                    ]
+                  }
+                },
+                "required": [
+                  "merchant_id",
+                  "store_id",
+                  "client_id",
+                  "client_secret",
+                  "grant_type"
+                ]
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {
+                    "request_id": "266ea41d-adf5-480b-af50-15b940c2b846",
+                    "merchant_id": "string",
+                    "store_id": "string",
+                    "client_id": "string",
+                    "client_secret": "string",
+                    "grant_type": "CLIENT_CREDENTIALS"
+                  }
+                }
+              }
+            }
+          },
+          "description": ""
+        },
+        "description": "This API allows the merchant to establish a secure connection with Skeps infra and returns an accessToken which must be used for all the other APIs. The generated token is valid for 24 hours and the latest generated token should be used for the APIs. This API is not required in special circumstances where a static token is provided to the merchant.\n"
+      }
+    }
+  },
+  "components": {
+    "schemas": {}
+  }
+}

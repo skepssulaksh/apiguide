@@ -1,0 +1,38 @@
+{
+  "title": "finalize_request",
+  "x-stoplight": {
+    "id": "twk27vqygg5ei"
+  },
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "baxt249c4p06g"
+      }
+    },
+    "merchant_id": {
+      "$ref": "./merchant_id.json",
+      "x-stoplight": {
+        "id": "p6l9fosv6qgns"
+      }
+    },
+    "store_id": {
+      "$ref": "./store_id.json",
+      "x-stoplight": {
+        "id": "o1h45reio2xjo"
+      }
+    },
+    "request_id": {
+      "$ref": "./request_id.json",
+      "x-stoplight": {
+        "id": "szww0hp7sjve2"
+      }
+    }
+  },
+  "required": [
+    "id",
+    "merchant_id",
+    "store_id"
+  ]
+}

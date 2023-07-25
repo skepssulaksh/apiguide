@@ -1,0 +1,51 @@
+{
+  "title": "cancel_response",
+  "x-stoplight": {
+    "id": "i62jply24bel9"
+  },
+  "type": "object",
+  "properties": {
+    "request_id": {
+      "$ref": "./request_id.json",
+      "x-stoplight": {
+        "id": "ywy1lmiv6upfy"
+      }
+    },
+    "timestamp": {
+      "$ref": "./timestamp.json",
+      "x-stoplight": {
+        "id": "ghb4mpwmm0nue"
+      }
+    },
+    "status": {
+      "x-stoplight": {
+        "id": "5crk8y6tfq2jw"
+      },
+      "enum": [
+        "SUCCESS"
+      ]
+    },
+    "data": {
+      "type": "object",
+      "x-stoplight": {
+        "id": "vkraxxwx2r0en"
+      },
+      "properties": {
+        "id": {
+          "type": "string",
+          "x-stoplight": {
+            "id": "lvp88livl24ja"
+          }
+        },
+        "status": {
+          "x-stoplight": {
+            "id": "i71mjfsh81xfg"
+          },
+          "enum": [
+            "CANCELLED"
+          ]
+        }
+      }
+    }
+  }
+}

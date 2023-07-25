@@ -1,0 +1,43 @@
+{
+  "title": "error_400",
+  "x-stoplight": {
+    "id": "acbeokzh145jm"
+  },
+  "type": "object",
+  "properties": {
+    "request_id": {
+      "$ref": "./request_id.json",
+      "x-stoplight": {
+        "id": "godq3xrwgn5zm"
+      }
+    },
+    "message": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "l9hyrqpmd9fq4"
+      },
+      "description": "Message of the response."
+    },
+    "timestamp": {
+      "$ref": "./timestamp.json",
+      "x-stoplight": {
+        "id": "ki8gl3q13hklx"
+      }
+    },
+    "errors": {
+      "$ref": "./field_errors.json",
+      "x-stoplight": {
+        "id": "g0achbgdc9ino"
+      }
+    },
+    "status": {
+      "x-stoplight": {
+        "id": "fy4bn01qz7cyu"
+      },
+      "enum": [
+        "ERROR"
+      ],
+      "description": "Status of the response."
+    }
+  }
+}

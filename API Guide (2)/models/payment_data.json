@@ -1,0 +1,33 @@
+{
+  "title": "payment_data",
+  "x-stoplight": {
+    "id": "vzbmzcv3fqaph"
+  },
+  "type": "object",
+  "properties": {
+    "account_number": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "7crgc6h4d2z56"
+      }
+    },
+    "routing_number": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "1bn54zzw8l94c"
+      }
+    },
+    "account_type": {
+      "$ref": "./account_type.json",
+      "x-stoplight": {
+        "id": "r8acjjws8auo8"
+      }
+    },
+    "processing_info": {
+      "type": "object",
+      "x-stoplight": {
+        "id": "rodbnx8k5a4db"
+      }
+    }
+  }
+}

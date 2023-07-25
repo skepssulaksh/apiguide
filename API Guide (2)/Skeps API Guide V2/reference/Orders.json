@@ -1,0 +1,878 @@
+{
+  "openapi": "3.1.0",
+  "x-stoplight": {
+    "id": "44wowi1994lje"
+  },
+  "info": {
+    "title": "Orders",
+    "version": "2.0",
+    "description": "**Overall Flow**\n\nThere are three key points in the customer journey where you need to integrate to provide financing options to its customers. The user interface screens below highlight the specific points of integration. Details of each of these integrations are covered later in the document.\n\n1. **Check eligibility** – Once a customer lands on a product page, you need to add a JavaScript SDK to show financing payment options (as highlighted in black box below).\n\n![Alt text](/assets/images/product_page.png) \n\n2. **Checkout** – At the checkout page, you need to add the same Javascript SDK to show financing payment option to the customer.\n\n![fghj](/assets/images/checkout.png)\n\n3. **After order confirmation** – Once the customer completes the application process and is shown the confirmation below, you will call Verify API (must be called before confirming the order to customer) and Payments API to complete the payment.\n\n![gh](/assets/images/order_confirm.png)\n\n\n**UI Integration – Check Eligibility**\n\nCheck Eligibility JavaScript SDK \nThe following script needs to be added to the header of every page to enable check eligibility. \n```\n<script type=\"application/javascript\" src=\"<SERVER_BASE_URL>/application/plugins/sdk/v2/scripts/skeps.js\"></script>\n\n```\n\n**HTML Elements**\n\n1.\tProduct Element: The following html must be added at all places where you want to show promotional messaging (as displayed in screenshots) against a product. The data-opportunity-amount field is optional. It can be provided to get exact offers for a particular amount in the promotional banners. The data-merchant-id is the Merchant Id provided by Skeps. The data-promotion-type is the type of banner to be shown and is pre-defined by Skeps. \n```\n<div name=\"skeps-promotion-banner\" data-opportunity-amount=”3000” data-merchant-id=”MERCHANT ID” data-promotion-type=”product”></div>\n\n```\n2.\tCheckout Element (Optional): The following html can be added at the financing payment option if you want to show customized messaging there. This should not be used at other places on the checkout page. The data-opportunity-amount field is optional. If provided, Skeps will then present promotional messaging based on checkout amount. The data-merchant-id is the Merchant Id provided by Skeps. The data-promotion-type is the type of banner to be shown and is pre-defined by Skeps. \n```\n<div name=\"skeps-promotion-banner” data-opportunity-amount=”3000” data-merchant-id=”MERCHANT ID” data-promotion-type=”checkout” ></div>\n```\n\n**UI Integration – Checkout**\n\nSkeps provides an easy way to integrate the Financing platform on any checkout experience.\n\n**Checkout JavaScript SDK** \n\nThe following script needs to be added to the header of checkout page to enable financing payment option.\n\n```js\n\n<script type=\"application/javascript\" src=\"<SERVER_BASE_URL>/application/plugins/sdk/v2/scripts/skeps.js\"></script>\n\n```\n\nSample Trigger Method\n```js\nvar config = { \nmode: 'modal',\nmerchantId: <Merchant Id>,\nsuccessUrl: 'https://www.google.com/success?orderId=<ORDER ID>', // URL to redirect on success. Order Id is added to the url provided in query parameters\nfailureUrl: 'https://www.google.com/failure?orderId=<ORDER ID>', // URL to redirect on failure. Order Id is added to the url provided in query parameters\ncartAmount: 9999,\ncartDetails: {    //Optional\nitems: [{\nitemName: 'Iphone 64 GB',\nitemDescription: 'Mobile Phone',\nitemValue: 700,\nSKU: '43784738'\n}],\ndiscount: 20,\nshipping: 47,\ntaxes: 230\n},\ninvoiceId: '43443111', // Optional. Unique id provided by merchant for tracking transaction\nmetadata: {}, // Optional data field to be filled by merchant as per their requirement \ncustomerDetails: {   //Optional\nfirstName: 'John',\nlastName: 'Doe',\nemail: 'john@doe.com',\nphoneNumber:'2001062102', \ndob: '1979-12-13',\nstreetAddress: '33679 Green Avenue',\ncity: 'Montgomery',\nstate: 'AL',\nzipcode: '36109',\n},\nbillingDetails:{   //Optional\nfirstName: 'John',\nlastName: 'Doe',\nstreetAddress: '123 Doe Lane',\ncity: 'New York',\nphoneNumber: '2001062102',\nstate: 'New York',\nzipcode: '10004',\n},\nshippingDetails:{   //Optional\nfirstName: 'John',\nlastName: 'Doe',\nstreetAddress: '123 Doe Lane',\ncity: 'New York',\nphoneNumber: '2001062102',\nstate: 'New York',\nzipcode: '10004',\n}}\nvar handlers = {   // Optional\nonSuccess: (event) => { // Your function here. This overrides your successUrl. Event parameter contains information about the order.\n},\nonFailure: (event) => { // Your function here. This overrides your failureUrl\n}}\n```\n \nSuccess Event Parameter\n```js\nevent = {\n    data: {\n        orderId: ‘SKEPS_ORDER_ID’\n    }\n}\n\n```\n\n<br>\n\n**Modes**\n\nThere are three modes for checkout that are supported by the system. This can be passed as the mode value in the config passed when initiating the flow.\n\n**LIGHTBOX**\nThis mode opens up a modal within the website. It does not disturb the current layout.\n\n```js\nwindow.SKEPS_FINANCING.initProcess(config, handlers);\n// handlers is optional\n\nvar config = {\nmode: 'modal',\nmerchantId: <Merchant Id>,\norderId: <Order Id>, // To be fetched using server API\naccessToken: <Access Token>, // To be fetched using server API\nsuccessUrl: 'https://www.google.com/success', // URL to redirect on success\nfailureUrl: 'https://www.google.com/failure', // URL to redirect on failure\ncartAmount: 9999,\ncartDetails: { //Optional\nitems: [{\nitemName: 'Iphone 64 GB',\nitemDescription: 'Mobile Phone',\nitemValue: 700,\nSKU: '43784738'\n}],\ndiscount: 20,\nshipping: 47,\ntaxes: 230\n},\ninvoiceId: '43443111', // Optional. Unique id provided by merchant for tracking transaction\nmetadata: {}, // Optional data field to be filled by merchant as per their requirement\ncustomerDetails: { //Optional\nfirstName: 'John',\nlastName: 'Doe',\nemail: 'john@doe.com',\nphoneNumber:'2001062102',\ndob: '1979-12-13',\nstreetAddress: '33679 Green Avenue',\ncity: 'Montgomery',\nstate: 'AL',\nzipcode: '36109',\n},\nbillingDetails:{ //Optional\nfirstName: 'John',\nlastName: 'Doe',\nstreetAddress: '123 Doe Lane',\ncity: 'New York',\nphoneNumber: '2001062102',\nstate: 'New York',\nzipcode: '10004',\n},\nshippingDetails:{ //Optional\nfirstName: 'John',\nlastName: 'Doe',\nstreetAddress: '123 Doe Lane',\ncity: 'New York',\nphoneNumber: '2001062102',\nstate: 'New York',\nzipcode: '10004',\n}}\nvar handlers = { // Optional\nonSuccess: (e) => { // Your function here. This overrides your successUrl\n},\nonFailure: () => { // Your function here. This overrides your failureUrl\n}}\n```\n\n**INLINE**\n\nThis mode opens the checkout flow as a part of the website as an extension might.\n```js\nconfig = {\n  url: landingUrl,\n  mode: 'inline', // opens page in inline mode\n  successUrl: 'https://www.google.com/search?q=success', // URL to redirect on success\n  failureUrl: 'https://www.google.com/search?q=failure', // URL to redirect on failure\n}\n\n```\n\n**REDIRECT**\n\nThis mode opens the checkout flow in a new tab and once the flow is completed, the control is returned to the initial page.\n```js\nconfig = {\n  mode: 'full-page-inline', // opens page in redirect mode\n}\n```\n\n\n"
+  },
+  "paths": {
+    "/application/api/merchant/v2/order/fund": {
+      "post": {
+        "summary": "Fund",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/fund_response_200.json",
+                  "x-examples": {
+                    "Example 1": {
+                      "applicationId": "3a1faa36-a579-465f-b783-39546af17b27",
+                      "status": "success"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "request_id": "266ea41d-adf5-480b-af50-15b940c2b846",
+                      "timestamp": "2019-08-24T14:15:22Z",
+                      "status": "SUCCESS",
+                      "data": {
+                        "id": "string",
+                        "status": "FUNDED",
+                        "card_details": {
+                          "pan": "string",
+                          "card_holder_name": "string",
+                          "cvv": "stri",
+                          "pin": "stri",
+                          "expiry": {
+                            "month": "string",
+                            "year": "string"
+                          },
+                          "valid_till": "2019-08-24T14:15:22Z",
+                          "is_avs_enabled": true,
+                          "address": {
+                            "unit": "string",
+                            "street_address_1": "string",
+                            "street_address_2": "string",
+                            "city": "string",
+                            "state": "st",
+                            "country": "US",
+                            "zip_code": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/error_400.json",
+                  "x-examples": {
+                    "Example 1": {
+                      "status": "error",
+                      "timestamp": 1658999664382,
+                      "error": "invalid invoice amount",
+                      "message": "The invoice amount is more than the total payable amount"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "status": "error",
+                      "timestamp": 1658999664382,
+                      "error": "invalid invoice amount",
+                      "message": "The invoice amount is more than the total payable amount"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/error_401.json",
+                  "x-examples": {
+                    "Example 1": {
+                      "status": "error",
+                      "timestamp": 1658999664382,
+                      "error": "invalid authorization token",
+                      "message": "Invalid authorization token"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "status": "error",
+                      "timestamp": 1658999664382,
+                      "error": "invalid authorization token",
+                      "message": "Invalid authorization token"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string"
+                    },
+                    "timestamp": {
+                      "type": "integer"
+                    },
+                    "error": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "x-examples": {
+                    "Example 1": {
+                      "status": "409",
+                      "timestamp": 1658999664382,
+                      "error": "conflict",
+                      "message": "conflict"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "status": "409",
+                      "timestamp": 1658999664382,
+                      "error": "conflict",
+                      "message": "conflict"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/error_500.json",
+                  "x-examples": {
+                    "Example 1": {
+                      "status": "error",
+                      "timestamp": 1658999664382,
+                      "error": "something went wrong",
+                      "message": "Something went wrong"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "status": "error",
+                      "timestamp": 1658999664382,
+                      "error": "something went wrong",
+                      "message": "Something went wrong"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "post-application-api-merchant-v1-app-fund",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "../../models/fund_request.json",
+                "x-examples": {
+                  "Example 1": {
+                    "appId": "string",
+                    "invoiceAmount": 0,
+                    "dealerData": {
+                      "dealerNumber": "string",
+                      "dealerName": "string",
+                      "dealerAddress": "string",
+                      "salesPersonName": "string",
+                      "salesPersonPhone": "string",
+                      "salesPersonEmail": "string",
+                      "accountType": "savings,checking",
+                      "accountNumber": "string",
+                      "routingNumber": "string"
+                    }
+                  }
+                }
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {
+                    "id": "string",
+                    "request_id": "266ea41d-adf5-480b-af50-15b940c2b846",
+                    "merchant_id": "string",
+                    "store_id": "string",
+                    "amount": 0,
+                    "currency": "USD",
+                    "payment_data": {
+                      "account_number": "string",
+                      "routing_number": "string",
+                      "account_type": {
+                        "id": "CHECKING"
+                      },
+                      "processing_info": {}
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Authorization",
+            "description": "Bearer[accessToken]",
+            "required": true
+          }
+        ]    },
+    "/application/api/merchant/v2/order/finalize": {
+      "post": {
+        "summary": "Finalize",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/finalize_response_200.json",
+                  "x-examples": {
+                    "Example 1": {
+                      "applicationId": "3a1faa36-a579-465f-b783-39546af17b27",
+                      "status": "success"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "request_id": "266ea41d-adf5-480b-af50-15b940c2b846",
+                      "timestamp": "2019-08-24T14:15:22Z",
+                      "status": "FINALIZED",
+                      "data": {
+                        "id": "string",
+                        "status": "FINALIZED"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/error_400.json",
+                  "x-examples": {
+                    "Example 1": {
+                      "status": "error",
+                      "timestamp": 1658999664382,
+                      "error": "invalid invoice amount",
+                      "message": "The invoice amount is more than the total payable amount"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "status": "error",
+                      "timestamp": 1658999664382,
+                      "error": "invalid invoice amount",
+                      "message": "The invoice amount is more than the total payable amount"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/error_401.json",
+                  "x-examples": {
+                    "Example 1": {
+                      "status": "error",
+                      "timestamp": 1658999664382,
+                      "error": "invalid authorization token",
+                      "message": "Invalid authorization token"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "status": "error",
+                      "timestamp": 1658999664382,
+                      "error": "invalid authorization token",
+                      "message": "Invalid authorization token"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/error_409.json",
+                  "x-examples": {
+                    "Example 1": {
+                      "status": "409",
+                      "timestamp": 1658999664382,
+                      "error": "conflict",
+                      "message": "conflict"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "status": "409",
+                      "timestamp": 1658999664382,
+                      "error": "conflict",
+                      "message": "conflict"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/error_500.json",
+                  "x-examples": {
+                    "Example 1": {
+                      "status": "error",
+                      "timestamp": 1658999664382,
+                      "error": "something went wrong",
+                      "message": "Something went wrong"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "status": "error",
+                      "timestamp": 1658999664382,
+                      "error": "something went wrong",
+                      "message": "Something went wrong"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "-post-application-api-merchant-v1-app-fund",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "../../models/finalize_request.json",
+                "x-examples": {
+                  "Example 1": {
+                    "appId": "string",
+                    "invoiceAmount": 0,
+                    "dealerData": {
+                      "dealerNumber": "string",
+                      "dealerName": "string",
+                      "dealerAddress": "string",
+                      "salesPersonName": "string",
+                      "salesPersonPhone": "string",
+                      "salesPersonEmail": "string",
+                      "accountType": "savings,checking",
+                      "accountNumber": "string",
+                      "routingNumber": "string"
+                    }
+                  }
+                }
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {
+                    "id": "string",
+                    "merchant_id": "string",
+                    "store_id": "string",
+                    "request_id": "266ea41d-adf5-480b-af50-15b940c2b846"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "This API allows the partner to initiate funding of a transaction. The API responds with the virtual card details for completing payment through your preferred payment gateway.\n\n"
+      },
+      "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Authorization",
+            "description": "Bearer[accessToken]",
+            "required": true
+          }
+        ]    },
+    "/application/api/merchant/v2/order/refund": {
+      "post": {
+        "summary": "Refund",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/refund_response_200.json",
+                  "x-examples": {
+                    "Example 1": {
+                      "applicationId": "3a1faa36-a579-465f-b783-39546af17b27",
+                      "status": "success"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "request_id": "266ea41d-adf5-480b-af50-15b940c2b846",
+                      "timestamp": "2019-08-24T14:15:22Z",
+                      "status": "SUCCESS",
+                      "data": {
+                        "id": "string",
+                        "status": "REFUNDED"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/error_400.json",
+                  "x-examples": {
+                    "Example 1": {
+                      "status": "error",
+                      "timestamp": 1658999664382,
+                      "error": "invalid refund amount",
+                      "message": "The refund amount is more than the funded amount"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "status": "error",
+                      "timestamp": 1658999664382,
+                      "error": "invalid refund amount",
+                      "message": "The refund amount is more than the funded amount"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/error_401.json",
+                  "x-examples": {
+                    "Example 1": {
+                      "status": "error",
+                      "timestamp": 1658999664382,
+                      "error": "invalid authorization token",
+                      "message": "Invalid authorization token"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "status": "error",
+                      "timestamp": 1658999664382,
+                      "error": "invalid authorization token",
+                      "message": "Invalid authorization token"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/error_500.json",
+                  "x-examples": {
+                    "Example 1": {
+                      "status": "error",
+                      "timestamp": 1658999664382,
+                      "error": "something went wrong",
+                      "message": "Something went wrong"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "status": "error",
+                      "timestamp": 1658999664382,
+                      "error": "something went wrong",
+                      "message": "Something went wrong"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "post-application-api-merchant-v1-app-refund",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "../../models/refund.json",
+                "x-examples": {
+                  "Example 1": {
+                    "applicationId": "3a1faa36-a579-465f-b783-39546af17b27",
+                    "refundAmount": 2000
+                  }
+                }
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {
+                    "id": "string",
+                    "request_id": "266ea41d-adf5-480b-af50-15b940c2b846",
+                    "merchant_id": "string",
+                    "store_id": "string",
+                    "amount": 0,
+                    "currency": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "This API enables the partner to verify whether the order is ready to be refund. Refunding API should be invoked after successful verification for the orderId (with the amount verified). Failed verification indicates that payment API would not succeed.\n\n"
+      },
+      "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Authorization",
+            "description": "Bearer[accessToken]",
+            "required": true
+          }
+        ]    },
+    "/application/api/merchant/v2/order/cancel": {
+      "post": {
+        "summary": "Cancel",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/cancel_response.json",
+                  "x-examples": {
+                    "Example 1": {
+                      "applicationId": "3a1faa36-a579-465f-b783-39546af17b27",
+                      "status": "success"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "request_id": "string",
+                      "timestamp": "string",
+                      "status": "string",
+                      "data": {
+                        "id": "string",
+                        "status": "CANCELLED"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/error_400.json",
+                  "x-examples": {
+                    "Example 1": {
+                      "status": "error",
+                      "timestamp": 1658999664382,
+                      "error": "invalid Request",
+                      "message": "The application can only be canceled after contract signing and before making a funding request"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "status": "error",
+                      "timestamp": 1658999664382,
+                      "error": "invalid Request",
+                      "message": "The application can only be canceled after contract signing and before making a funding request"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/error_401.json",
+                  "x-examples": {
+                    "Example 1": {
+                      "status": "error",
+                      "timestamp": 1658999664382,
+                      "error": "invalid authorization token",
+                      "message": "Invalid authorization token"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "status": "error",
+                      "timestamp": 1658999664382,
+                      "error": "invalid authorization token",
+                      "message": "Invalid authorization token"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/error_500.json",
+                  "x-examples": {
+                    "Example 1": {
+                      "status": "error",
+                      "timestamp": 1658999664382,
+                      "error": "something went wrong",
+                      "message": "Something went wrong"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "status": "error",
+                      "timestamp": 1658999664382,
+                      "error": "something went wrong",
+                      "message": "Something went wrong"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "post-application-api-merchant-v1-app-cancel",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "../../models/cancel.json",
+                "x-examples": {
+                  "Example 1": {
+                    "applicationId": "3a1faa36-a579-465f-b783-39546af17b27"
+                  }
+                }
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {
+                    "id": "string",
+                    "merchant_id": "string",
+                    "store_id": "string",
+                    "request_id": "266ea41d-adf5-480b-af50-15b940c2b846"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "This API enables the partner to cancel the order for which the payment API has not been called yet.\n\n"
+      },
+      "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Authorization",
+            "description": "Bearer[accessToken]",
+            "required": true
+          }
+        ]    },
+    "/application/api/merchant/v2/order/verify": {
+      "post": {
+        "summary": "Verify",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/verify_response_200.json",
+                  "x-examples": {
+                    "Example 1": {
+                      "verification_status": "success",
+                      "success": "true"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "request_id": "266ea41d-adf5-480b-af50-15b940c2b846",
+                      "timestamp": "2019-08-24T14:15:22Z",
+                      "status": "SUCCESS",
+                      "data": {
+                        "id": "string",
+                        "status": "VERIFIED"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/error_400.json"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/error_401.json"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/error_500.json"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "post-application-api-order-v2-order-verify",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "../../models/verify.json"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {
+                    "id": "string",
+                    "request_id": "266ea41d-adf5-480b-af50-15b940c2b846",
+                    "store_id": "string",
+                    "merchant_id": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "This API enables the partner to verify whether the order is ready to be funded. Funding API should be invoked after successful verification for the orderId (with the amount verified). Failed verification indicates that payment API would not succeed.\n\n"
+      },
+      "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Authorization",
+            "description": "Bearer[accessToken]",
+            "required": true
+          }
+        ]    }
+  },
+  "components": {
+    "schemas": {}
+  }
+}

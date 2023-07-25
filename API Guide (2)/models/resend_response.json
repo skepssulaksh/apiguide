@@ -1,0 +1,49 @@
+{
+  "title": "resend_response",
+  "x-stoplight": {
+    "id": "cswevr4wmuazb"
+  },
+  "type": "object",
+  "properties": {
+    "request_id": {
+      "$ref": "./request_id.json",
+      "x-stoplight": {
+        "id": "nwcny8xd6om49"
+      }
+    },
+    "timestamp": {
+      "$ref": "./timestamp.json",
+      "x-stoplight": {
+        "id": "xrfy6ot1pp26c"
+      }
+    },
+    "status": {
+      "x-stoplight": {
+        "id": "jjonmiebx7x6x"
+      },
+      "enum": [
+        "SUCCESS"
+      ]
+    },
+    "data": {
+      "type": "object",
+      "x-stoplight": {
+        "id": "ke2r4k9djo14q"
+      },
+      "properties": {
+        "id": {
+          "type": "string",
+          "x-stoplight": {
+            "id": "qhns1angcbr82"
+          }
+        },
+        "link": {
+          "type": "string",
+          "x-stoplight": {
+            "id": "i2blvgjyaolvx"
+          }
+        }
+      }
+    }
+  }
+}

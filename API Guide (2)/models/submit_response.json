@@ -1,0 +1,152 @@
+{
+  "title": "submit_response",
+  "x-stoplight": {
+    "id": "jo2v6rhzzcz2b"
+  },
+  "type": "object",
+  "properties": {
+    "request_id": {
+      "$ref": "./request_id.json",
+      "x-stoplight": {
+        "id": "952fwvzw5edgw"
+      }
+    },
+    "status": {
+      "x-stoplight": {
+        "id": "35mghvfn7mhl1"
+      },
+      "enum": [
+        "SUCCESS"
+      ]
+    },
+    "timestamp": {
+      "$ref": "./timestamp.json",
+      "x-stoplight": {
+        "id": "jm5mgt1np6ynq"
+      }
+    },
+    "data": {
+      "type": "object",
+      "x-stoplight": {
+        "id": "e98rn3h7mmwkw"
+      },
+      "properties": {
+        "id": {
+          "type": "string",
+          "x-stoplight": {
+            "id": "iqfgpmu6ht9sn"
+          }
+        },
+        "status": {
+          "x-stoplight": {
+            "id": "vi4oufmt4l87d"
+          },
+          "enum": [
+            "APPROVED",
+            "APPROVED_OTHER_OFFERS",
+            "DECLINED",
+            "PENDING (Lender requires manual review and verification of application)"
+          ]
+        },
+        "max_qualified_amount": {
+          "$ref": "./amount.json",
+          "x-stoplight": {
+            "id": "mpdidrtk380rr"
+          }
+        },
+        "currency": {
+          "type": "string",
+          "x-stoplight": {
+            "id": "rbxnf1okky5i1"
+          }
+        },
+        "redirect_url": {
+          "type": "string",
+          "x-stoplight": {
+            "id": "5dd3mfx60zk6q"
+          }
+        },
+        "offers": {
+          "type": "array",
+          "x-stoplight": {
+            "id": "2c0z8dxh4oshq"
+          },
+          "items": {
+            "$ref": "./offer.json",
+            "x-stoplight": {
+              "id": "isx7wrl2r31o8"
+            }
+          }
+        },
+        "selected_offer": {
+          "$ref": "./offer.json",
+          "x-stoplight": {
+            "id": "iapqkcevcrfbd"
+          }
+        },
+        "requires_stipulations": {
+          "type": "boolean",
+          "x-stoplight": {
+            "id": "998vpivpiie6x"
+          },
+          "description": "Possible values: false (default)\ntrue: Approved but lender requires further verification."
+        },
+        "requires_review": {
+          "type": "boolean",
+          "x-stoplight": {
+            "id": "knfjomte35bhs"
+          },
+          "description": "Possible values:\ntrue: In case of status marked as “pending”\nfalse\n\nDefault: true"
+        },
+        "applicant_flags": {
+          "x-stoplight": {
+            "id": "iygufp5eh91qw"
+          },
+          "enum": [
+            "EXPERIAN_CREDIT_FREEZE",
+            "EXPERIAN_CREDIT_LOCK",
+            "EXPERIAN_NO_HIT",
+            "TRANSUNION_CREDIT_FREEZE",
+            "TRANSUNION_NO_HIT",
+            "PII_MISMATCH",
+            "PHONE_SSN_MISMATCH"
+          ]
+        },
+        "co_applicant_flags": {
+          "type": "array",
+          "x-stoplight": {
+            "id": "0mkh09exvwqv6"
+          },
+          "items": {
+            "x-stoplight": {
+              "id": "fmlpeskc41teg"
+            },
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "x-stoplight": {
+                  "id": "ueugmoehcnn1d"
+                }
+              },
+              "flag": {
+                "x-stoplight": {
+                  "id": "x2ssgfkdtfhae"
+                },
+                "enum": [
+                  "EXPERIAN_CREDIT_FREEZE",
+                  "EXPERIAN_CREDIT_LOCK",
+                  "EXPERIAN_NO_HIT",
+                  "TRANSUNION_CREDIT_FREEZE",
+                  "TRANSUNION_NO_HIT",
+                  "PII_MISMATCH",
+                  "PHONE_SSN_MISMATCH"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

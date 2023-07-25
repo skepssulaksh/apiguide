@@ -1,0 +1,12 @@
+title: 'Authorisation '
+x-stoplight:
+  id: 4n7ffuv0k04mk
+type: object
+properties:
+  Authorization:
+    type: string
+    x-stoplight:
+      id: nd28zrda15kp1
+    description: 'Bearer[accessToken]'
+required:
+  - Authorization

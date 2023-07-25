@@ -1,0 +1,39 @@
+{
+  "collapseTableOfContents": false,
+  "items": [
+    {
+      "type": "divider",
+      "title": "APIS"
+    },
+    {
+      "type": "item",
+      "title": "Authentication",
+      "uri": "/Skeps API Guide V2/reference/Authentication.json"
+    },
+    {
+      "type": "item",
+      "title": "Application",
+      "uri": "/Skeps API Guide V2/reference/Merchant API.json"
+    },
+    {
+      "type": "item",
+      "title": "Lead",
+      "uri": "/Skeps API Guide V2/reference/Lead.json"
+    },
+    {
+      "type": "item",
+      "title": "Invoice",
+      "uri": "/Skeps API Guide V2/reference/Invoice.json"
+    },
+    {
+      "type": "item",
+      "title": "Orders",
+      "uri": "/Skeps API Guide V2/reference/Orders.json"
+    },
+    {
+      "type": "item",
+      "title": "Webhook",
+      "uri": "/Skeps API Guide V2/reference/Webhook.json"
+    }
+  ]
+}

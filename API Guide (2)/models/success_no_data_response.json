@@ -1,0 +1,33 @@
+{
+  "title": "response_",
+  "x-stoplight": {
+    "id": "7gb23mfgz0x32"
+  },
+  "type": "object",
+  "properties": {
+    "request_id": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "ecmhbefgci9n6"
+      }
+    },
+    "data": {
+      "$ref": "./success_no_data.json",
+      "x-stoplight": {
+        "id": "06f9y7l5qon70"
+      }
+    },
+    "timestamp": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "jgxza8fy97o3q"
+      }
+    },
+    "status": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "pbgzqc4oyg5fb"
+      }
+    }
+  }
+}

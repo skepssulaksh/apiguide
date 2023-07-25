@@ -1,0 +1,152 @@
+{
+  "title": "applicant",
+  "x-stoplight": {
+    "id": "ltuu30xqv3y0u"
+  },
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "iis3nl7vamy4l"
+      },
+      "format": "uuid"
+    },
+    "first_name": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "ehqbf92hrtagj"
+      }
+    },
+    "last_name": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "1xkk2j0zctzfc"
+      }
+    },
+    "email": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "rogcmk6gufp1t"
+      }
+    },
+    "cell_phone": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "pn26pzy39skjp"
+      }
+    },
+    "ssn": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "g05nukeroutlo"
+      }
+    },
+    "date_of_birth": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "rkqfevsoibc3y"
+      },
+      "description": "Birth date"
+    },
+    "ip_address": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "2091ui2s5sc94"
+      },
+      "description": "‘ipAddress’ is a conditional field that is mandatory for some lenders. ipAddress supports both ipv4 and ipv6 formats."
+    },
+    "address": {
+      "$ref": "./address.json",
+      "x-stoplight": {
+        "id": "0a7chivnetwgx"
+      }
+    },
+    "employment_details": {
+      "type": "object",
+      "x-stoplight": {
+        "id": "sik5neb03a59x"
+      },
+      "properties": {
+        "occupation": {
+          "type": "string",
+          "x-stoplight": {
+            "id": "3vwzhdahwd149"
+          }
+        },
+        "employment_type": {
+          "type": "string",
+          "x-stoplight": {
+            "id": "zhc3081kliiws"
+          }
+        },
+        "employer_name": {
+          "type": "string",
+          "x-stoplight": {
+            "id": "ty27sagjwywff"
+          }
+        },
+        "employer_phone": {
+          "type": "string",
+          "x-stoplight": {
+            "id": "bpwyzpka2tl45"
+          }
+        },
+        "employer_email": {
+          "type": "string",
+          "x-stoplight": {
+            "id": "ldfeoe3feijvk"
+          }
+        },
+        "employment_start_date": {
+          "type": "string",
+          "x-stoplight": {
+            "id": "3a3rq681sxn50"
+          }
+        }
+      }
+    },
+    "financial_details": {
+      "type": "object",
+      "x-stoplight": {
+        "id": "pik7ualta3bzk"
+      },
+      "properties": {
+        "monthly_income": {
+          "$ref": "./amount.json",
+          "x-stoplight": {
+            "id": "7rezpoihrdc05"
+          }
+        },
+        "taxable_indicator": {
+          "type": "boolean",
+          "x-stoplight": {
+            "id": "wdfpun7a7vplc"
+          }
+        },
+        "other_income": {
+          "$ref": "./amount.json",
+          "x-stoplight": {
+            "id": "nohu614iojzgd"
+          },
+          "description": "“otherIncome” is monthly value."
+        },
+        "monthly_debt": {
+          "$ref": "./amount.json",
+          "x-stoplight": {
+            "id": "0fp3m76hl4dg7"
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "first_name",
+    "last_name",
+    "email",
+    "cell_phone",
+    "ssn",
+    "date_of_birth",
+    "address"
+  ]
+}

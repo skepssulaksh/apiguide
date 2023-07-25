@@ -1,0 +1,722 @@
+{
+  "openapi": "3.1.0",
+  "x-stoplight": {
+    "id": "49ej27inayoc3"
+  },
+  "info": {
+    "title": "Lead",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    }
+  ],
+  "paths": {
+    "/application/api/merchant/v2/lead/create": {
+      "post": {
+        "summary": "Create",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/create_response_200.json",
+                  "x-examples": {
+                    "Example 1": {
+                      "timestamp": "string",
+                      "merchant_data": {
+                        "reference_id": "string",
+                        "metadata": {},
+                        "dealer_data": {
+                          "id": "string",
+                          "name": "string",
+                          "address": {
+                            "unit": "string",
+                            "street_address_1": "string",
+                            "street_address_2": "string",
+                            "city": "string",
+                            "state": "st",
+                            "country": "US",
+                            "zip_code": "string"
+                          }
+                        },
+                        "representative_data": {
+                          "id": "string",
+                          "name": "string",
+                          "cell_phone": "string",
+                          "email": "string"
+                        }
+                      },
+                      "id": "string",
+                      "request_id": "266ea41d-adf5-480b-af50-15b940c2b846",
+                      "status": "string",
+                      "link": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "request_id": "266ea41d-adf5-480b-af50-15b940c2b846",
+                      "data": {
+                        "id": "string",
+                        "merchant_data": {
+                          "reference_id": "string",
+                          "metadata": {},
+                          "dealer_data": {
+                            "id": "string",
+                            "name": "string",
+                            "address": {
+                              "unit": "string",
+                              "street_address_1": "string",
+                              "street_address_2": "string",
+                              "city": "string",
+                              "state": "st",
+                              "country": "US",
+                              "zip_code": "string"
+                            }
+                          },
+                          "representative_data": {
+                            "id": "string",
+                            "name": "string",
+                            "cell_phone": "string",
+                            "email": "string"
+                          }
+                        },
+                        "link": "string"
+                      },
+                      "timestamp": "2019-08-24T14:15:22Z",
+                      "status": "SUCCESS"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/error_400.json"
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "request_id": "266ea41d-adf5-480b-af50-15b940c2b846",
+                      "message": "string",
+                      "timestamp": "2019-08-24T14:15:22Z",
+                      "errors": {
+                        "field_type": "HEADER",
+                        "location": [
+                          "string"
+                        ],
+                        "issue": "REQUIRED"
+                      },
+                      "status": "ERROR"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/error_401.json"
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "message": "string",
+                      "timestamp": "2019-08-24T14:15:22Z",
+                      "status": "ERROR"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/error_500.json"
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "status": "ERROR",
+                      "message": "string",
+                      "timestamp": "2019-08-24T14:15:22Z",
+                      "request_id": "266ea41d-adf5-480b-af50-15b940c2b846"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "/post-create",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "x-examples": {
+                  "Example 1": {
+                    "merchant_id": "merchantId1",
+                    "store_id": "storeId1",
+                    "email": "qwe@d.com",
+                    "first_name": "asdew",
+                    "last_name": "vbgftre",
+                    "cell_phone": "4563219873",
+                    "type": "INVOICE",
+                    "channels": [
+                      "SMS"
+                    ],
+                    "amount": 1000,
+                    "reference_id": "d72ffac9-7a12-4ba5-8060-cfa4ee80cb99",
+                    "metadata": {}
+                  }
+                },
+                "properties": {
+                  "request_id": {
+                    "$ref": "../../models/request_id.json",
+                    "x-stoplight": {
+                      "id": "kjqtb7jfhfg8w"
+                    }
+                  },
+                  "merchant_id": {
+                    "$ref": "../../models/merchant_id.json"
+                  },
+                  "store_id": {
+                    "$ref": "../../models/store_id.json"
+                  },
+                  "notification_channels": {
+                    "$ref": "../../models/notification_channels.json",
+                    "x-stoplight": {
+                      "id": "x2qufmdwblfbs"
+                    }
+                  },
+                  "merchant_data": {
+                    "$ref": "../../models/merchant_data.json",
+                    "x-stoplight": {
+                      "id": "38t379iekbrdc"
+                    }
+                  },
+                  "applicant": {
+                    "$ref": "../../models/customer_data.json",
+                    "x-stoplight": {
+                      "id": "mjq6k18h93u7a"
+                    }
+                  },
+                  "purchase_data": {
+                    "$ref": "../../models/purchase_data.json",
+                    "x-stoplight": {
+                      "id": "6cnyilg0e7f1l"
+                    }
+                  }
+                },
+                "required": [
+                  "merchant_id",
+                  "store_id",
+                  "notification_channels",
+                  "applicant"
+                ]
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {
+                    "request_id": "266ea41d-adf5-480b-af50-15b940c2b846",
+                    "merchant_id": "string",
+                    "store_id": "string",
+                    "notification_channels": [
+                      "SMS"
+                    ],
+                    "merchant_data": {
+                      "reference_id": "string",
+                      "metadata": {},
+                      "dealer_data": {
+                        "id": "string",
+                        "name": "string",
+                        "address": {
+                          "unit": "string",
+                          "street_address_1": "string",
+                          "street_address_2": "string",
+                          "city": "string",
+                          "state": "st",
+                          "country": "US",
+                          "zip_code": "string"
+                        }
+                      },
+                      "representative_data": {
+                        "id": "string",
+                        "name": "string",
+                        "cell_phone": "string",
+                        "email": "string"
+                      }
+                    },
+                    "applicant": {
+                      "first_name": "string",
+                      "last_name": "string",
+                      "cell_phone": "string",
+                      "email": "string",
+                      "address": {
+                        "unit": "string",
+                        "street_address_1": "string",
+                        "street_address_2": "string",
+                        "city": "string",
+                        "state": "st",
+                        "country": "US",
+                        "zip_code": "string"
+                      }
+                    },
+                    "purchase_data": {
+                      "billing_details": {
+                        "first_name": "string",
+                        "last_name": "string",
+                        "cell_phone": "string",
+                        "email": "string",
+                        "address": {
+                          "unit": "string",
+                          "street_address_1": "string",
+                          "street_address_2": "string",
+                          "city": "string",
+                          "state": "st",
+                          "country": "US",
+                          "zip_code": "string"
+                        }
+                      },
+                      "shipping_details": {
+                        "first_name": "string",
+                        "last_name": "string",
+                        "cell_phone": "string",
+                        "email": "string",
+                        "address": {
+                          "unit": "string",
+                          "street_address_1": "string",
+                          "street_address_2": "string",
+                          "city": "string",
+                          "state": "st",
+                          "country": "US",
+                          "zip_code": "string"
+                        }
+                      },
+                      "cart_details": {
+                        "items": [
+                          null
+                        ],
+                        "discount": 0,
+                        "shipping": 0,
+                        "taxes": 0,
+                        "net_amount": "string",
+                        "currency": "string"
+                      },
+                      "property_details": {
+                        "address": {
+                          "unit": "string",
+                          "street_address_1": "string",
+                          "street_address_2": "string",
+                          "city": "string",
+                          "state": "st",
+                          "country": "US",
+                          "zip_code": "string"
+                        },
+                        "is_rented": true
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "in": "header",
+          "name": "Authorization",
+          "description": "Bearer[accessToken]",
+          "required": true
+        }
+      ]
+    },
+    "/application/api/merchant/v2/lead/cancel": {
+      "post": {
+        "summary": "Cancel",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/cancel_response.json",
+                  "x-examples": {
+                    "Example 1": {
+                      "id": "3a1faa36-a579-465f-b783-39546af17b27",
+                      "status": "success"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "request_id": "string",
+                      "timestamp": "string",
+                      "status": "string",
+                      "data": {
+                        "id": "string",
+                        "status": "CANCELLED"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/error_400.json",
+                  "x-examples": {
+                    "Example 1": {
+                      "status": "error",
+                      "timestamp": 1658999664382,
+                      "error": "invalid Request",
+                      "message": "The application can only be canceled after contract signing and before making a funding request"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "request_id": "266ea41d-adf5-480b-af50-15b940c2b846",
+                      "message": "string",
+                      "timestamp": "2019-08-24T14:15:22Z",
+                      "errors": {
+                        "field_type": "HEADER",
+                        "location": [
+                          "string"
+                        ],
+                        "issue": "REQUIRED"
+                      },
+                      "status": "ERROR"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/error_401.json",
+                  "x-examples": {
+                    "Example 1": {
+                      "status": "error",
+                      "timestamp": 1658999664382,
+                      "error": "invalid authorization token",
+                      "message": "Invalid authorization token"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "message": "string",
+                      "timestamp": "2019-08-24T14:15:22Z",
+                      "status": "ERROR"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/error_409.json"
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "request_id": "266ea41d-adf5-480b-af50-15b940c2b846",
+                      "timestamp": "2019-08-24T14:15:22Z",
+                      "status": "ERROR",
+                      "message": "string",
+                      "code": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string"
+                    },
+                    "timestamp": {
+                      "type": "integer"
+                    },
+                    "error": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "x-examples": {
+                    "Example 1": {
+                      "status": "error",
+                      "timestamp": 1658999664382,
+                      "error": "something went wrong",
+                      "message": "Something went wrong"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "status": "string",
+                      "timestamp": 0,
+                      "error": "string",
+                      "message": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "/post-application-api-merchant-v1-app-cancel",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "../../models/cancel.json",
+                "x-examples": {
+                  "Example 1": {
+                    "applicationId": "3a1faa36-a579-465f-b783-39546af17b27"
+                  }
+                }
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {
+                    "id": "string",
+                    "merchant_id": "string",
+                    "store_id": "string",
+                    "request_id": "266ea41d-adf5-480b-af50-15b940c2b846"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "id: This is the lead id recieved aftering creating lead using the create api (data.id)"
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "in": "header",
+          "name": "Authorization",
+          "description": "Bearer[accessToken]",
+          "required": true
+        }
+      ]
+    },
+    "/application/api/merchant/v2/lead/resend": {
+      "post": {
+        "summary": "Resend",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/resend_response.json",
+                  "x-examples": {
+                    "Example 1": {
+                      "id": "baa1e810-f1cc-4dc7-989b-7eafbbfbeb98",
+                      "message": "Link Re-sent"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "request_id": "266ea41d-adf5-480b-af50-15b940c2b846",
+                      "timestamp": "2019-08-24T14:15:22Z",
+                      "status": "SUCCESS",
+                      "data": {
+                        "id": "string",
+                        "link": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/error_400.json"
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "request_id": "266ea41d-adf5-480b-af50-15b940c2b846",
+                      "message": "string",
+                      "timestamp": "2019-08-24T14:15:22Z",
+                      "errors": {
+                        "field_type": "HEADER",
+                        "location": [
+                          "string"
+                        ],
+                        "issue": "REQUIRED"
+                      },
+                      "status": "ERROR"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/error_401.json"
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "message": "string",
+                      "timestamp": "2019-08-24T14:15:22Z",
+                      "status": "ERROR"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/error_409.json"
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "request_id": "266ea41d-adf5-480b-af50-15b940c2b846",
+                      "timestamp": "2019-08-24T14:15:22Z",
+                      "status": "ERROR",
+                      "message": "string",
+                      "code": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../models/error_500.json"
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "status": "ERROR",
+                      "message": "string",
+                      "timestamp": "2019-08-24T14:15:22Z",
+                      "request_id": "266ea41d-adf5-480b-af50-15b940c2b846"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "/post-application-api-invoice-v2-app-resend",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "../../models/resend.json",
+                "x-examples": {
+                  "Example 1": {
+                    "applicationId": "baa1e810-f1cc-4dc7-989b-7eafbbfbeb98",
+                    "channel": [
+                      "SMS",
+                      "EMAIL"
+                    ]
+                  }
+                }
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {
+                    "merchant_id": "string",
+                    "store_id": "string",
+                    "id": "string",
+                    "request_id": "266ea41d-adf5-480b-af50-15b940c2b846"
+                  }
+                }
+              }
+            }
+          },
+          "description": "  "
+        }
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "in": "header",
+          "name": "Authorization",
+          "description": "Bearer[accessToken]",
+          "required": true
+        }
+      ]
+    }
+  },
+  "components": {
+    "schemas": {}
+  }
+}

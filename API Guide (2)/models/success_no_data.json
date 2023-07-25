@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "x-examples": {
+    "Example 1": {
+      "id": "string",
+      "merchant_id": "string",
+      "store_id": "string",
+      "request_id": "266ea41d-adf5-480b-af50-15b940c2b846"
+    }
+  },
+  "properties": {
+    "id": {
+      "type": "string"
+    }
+  }
+}

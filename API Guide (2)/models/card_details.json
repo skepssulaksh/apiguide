@@ -1,0 +1,89 @@
+{
+  "title": "card_details",
+  "x-stoplight": {
+    "id": "wapo1l6f9a6yu"
+  },
+  "type": "object",
+  "properties": {
+    "pan": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "740yn99uuqup7"
+      }
+    },
+    "card_holder_name": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "47btsjblsy1im"
+      }
+    },
+    "cvv": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "iw9h5dto8baju"
+      },
+      "minLength": 3,
+      "maxLength": 4
+    },
+    "pin": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "fmbhmk2tnfysb"
+      },
+      "minLength": 4,
+      "maxLength": 4
+    },
+    "expiry": {
+      "type": "object",
+      "x-stoplight": {
+        "id": "xvaqqowcxh87q"
+      },
+      "required": [
+        "month",
+        "year"
+      ],
+      "properties": {
+        "month": {
+          "type": "string",
+          "x-stoplight": {
+            "id": "qmjdredmsn1mh"
+          }
+        },
+        "year": {
+          "type": "string",
+          "x-stoplight": {
+            "id": "31z17cj36yjwy"
+          }
+        }
+      }
+    },
+    "valid_till": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "9k60qxt4ouxs9"
+      },
+      "format": "date-time"
+    },
+    "is_avs_enabled": {
+      "type": "boolean",
+      "x-stoplight": {
+        "id": "flgkfwd8u2lx8"
+      }
+    },
+    "address": {
+      "$ref": "./address.json",
+      "x-stoplight": {
+        "id": "n042f61u6jigk"
+      }
+    }
+  },
+  "required": [
+    "pan",
+    "card_holder_name",
+    "cvv",
+    "expiry",
+    "valid_till",
+    "is_avs_enabled"
+  ],
+  "examples": []
+}

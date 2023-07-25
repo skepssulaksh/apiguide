@@ -1,0 +1,33 @@
+{
+  "title": "items",
+  "x-stoplight": {
+    "id": "nl7zmx1yk2kfu"
+  },
+  "type": "object",
+  "properties": {
+    "sku": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "kijxcxmkl90w1"
+      }
+    },
+    "name": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "9iewf9nbiihrx"
+      }
+    },
+    "description": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "lc5zpe2pc45op"
+      }
+    },
+    "value": {
+      "type": "integer",
+      "x-stoplight": {
+        "id": "76f05t3w701de"
+      }
+    }
+  }
+}

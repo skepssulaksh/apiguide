@@ -1,0 +1,16 @@
+{
+  "title": "notification_channels",
+  "x-stoplight": {
+    "id": "poop7ygt2rekn"
+  },
+  "type": "array",
+  "items": {
+    "x-stoplight": {
+      "id": "jo9lvr4fya1l8"
+    },
+    "enum": [
+      "SMS",
+      "EMAIL"
+    ]
+  }
+}

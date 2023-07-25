@@ -1,0 +1,60 @@
+{
+  "title": "address",
+  "x-stoplight": {
+    "id": "jme8gu9le068i"
+  },
+  "type": "object",
+  "properties": {
+    "unit": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "q3w70x7zd5jl8"
+      }
+    },
+    "street_address_1": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "5q9c21qlsdk61"
+      }
+    },
+    "street_address_2": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "36dfftvb9xvbv"
+      }
+    },
+    "city": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "fsbgufzf78h2p"
+      }
+    },
+    "state": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "bu2hhqgn1zf7g"
+      },
+      "maxLength": 2
+    },
+    "country": {
+      "x-stoplight": {
+        "id": "aw2jmlcnim4lq"
+      },
+      "enum": [
+        "US"
+      ]
+    },
+    "zip_code": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "1pgfjvs8me58z"
+      }
+    }
+  },
+  "required": [
+    "street_address_1",
+    "city",
+    "state",
+    "zip_code"
+  ]
+}

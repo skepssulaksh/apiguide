@@ -1,0 +1,44 @@
+{
+  "title": "applicant",
+  "x-stoplight": {
+    "id": "d9ii8h21mjkmm"
+  },
+  "type": "object",
+  "properties": {
+    "first_name": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "h80scszn1tpti"
+      }
+    },
+    "last_name": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "4rpkeuaplt2uk"
+      }
+    },
+    "cell_phone": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "9eldn2565sdj6"
+      }
+    },
+    "email": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "fpqnua50ldpcg"
+      }
+    },
+    "address": {
+      "$ref": "./address.json",
+      "x-stoplight": {
+        "id": "fjowsspbi89bv"
+      }
+    }
+  },
+  "required": [
+    "first_name",
+    "last_name",
+    "cell_phone"
+  ]
+}

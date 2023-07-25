@@ -1,0 +1,37 @@
+{
+  "title": "error_500",
+  "x-stoplight": {
+    "id": "1hirq3myjn75z"
+  },
+  "type": "object",
+  "properties": {
+    "status": {
+      "x-stoplight": {
+        "id": "fa6y8zmffz1to"
+      },
+      "enum": [
+        "ERROR"
+      ],
+      "description": "Status of the response."
+    },
+    "message": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "zd0vgkptqmi1m"
+      },
+      "description": "Message of the response."
+    },
+    "timestamp": {
+      "$ref": "./timestamp.json",
+      "x-stoplight": {
+        "id": "jlgwcyv6fwqmv"
+      }
+    },
+    "request_id": {
+      "$ref": "./request_id.json",
+      "x-stoplight": {
+        "id": "kgih47zssuhpx"
+      }
+    }
+  }
+}

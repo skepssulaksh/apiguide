@@ -1,0 +1,158 @@
+{
+  "title": "submit_response",
+  "x-stoplight": {
+    "id": "swknqbaoc2qgv"
+  },
+  "type": "object",
+  "properties": {
+    "request_id": {
+      "$ref": "./request_id.json",
+      "x-stoplight": {
+        "id": "hpbg66ktkguxc"
+      }
+    },
+    "status": {
+      "x-stoplight": {
+        "id": "xjbqde2xp0zxs"
+      },
+      "enum": [
+        "SUCCESS"
+      ]
+    },
+    "timestamp": {
+      "$ref": "./timestamp.json",
+      "x-stoplight": {
+        "id": "c0r6r5hhib02s"
+      }
+    },
+    "data": {
+      "type": "object",
+      "x-stoplight": {
+        "id": "luckucmpfa05j"
+      },
+      "properties": {
+        "id": {
+          "type": "string",
+          "x-stoplight": {
+            "id": "1rbmvcrpdi7mb"
+          }
+        },
+        "status": {
+          "x-stoplight": {
+            "id": "abhfpdyq6gf9b"
+          },
+          "enum": [
+            "APPROVED",
+            "APPROVED_OTHER_OFFERS",
+            "DECLINED",
+            "PENDING (Lender requires manual review and verification of application)"
+          ]
+        },
+        "max_qualified_amount": {
+          "$ref": "./amount.json",
+          "x-stoplight": {
+            "id": "3o0llms8mbfe7"
+          }
+        },
+        "currency": {
+          "type": "string",
+          "x-stoplight": {
+            "id": "4d5gkak6gvqmj"
+          }
+        },
+        "redirect_url": {
+          "type": "string",
+          "x-stoplight": {
+            "id": "se9868wqc3eon"
+          }
+        },
+        "offers": {
+          "type": "array",
+          "x-stoplight": {
+            "id": "lujps2a2g5m70"
+          },
+          "items": {
+            "$ref": "./offer.json",
+            "x-stoplight": {
+              "id": "y1i1tj476bqjh"
+            }
+          }
+        },
+        "selected_offer": {
+          "$ref": "./offer.json",
+          "x-stoplight": {
+            "id": "wxvj1r6ag18x5"
+          }
+        },
+        "requires_stipulations": {
+          "type": "boolean",
+          "x-stoplight": {
+            "id": "7t9l0f5ihot6h"
+          },
+          "description": "Possible values: false (default)\ntrue: Approved but lender requires further verification."
+        },
+        "requires_review": {
+          "type": "boolean",
+          "x-stoplight": {
+            "id": "4mw1i6r99ejt2"
+          },
+          "description": "Possible values:\ntrue: In case of status marked as “pending”\nfalse\n\nDefault: true"
+        },
+        "applicant_flags": {
+          "x-stoplight": {
+            "id": "fjirhipitvuj9"
+          },
+          "enum": [
+            "EXPERIAN_CREDIT_FREEZE",
+            "EXPERIAN_CREDIT_LOCK",
+            "EXPERIAN_NO_HIT",
+            "TRANSUNION_CREDIT_FREEZE",
+            "TRANSUNION_NO_HIT",
+            "PII_MISMATCH",
+            "PHONE_SSN_MISMATCH"
+          ]
+        },
+        "co_applicant_flags": {
+          "type": "array",
+          "x-stoplight": {
+            "id": "ozddtspi3plym"
+          },
+          "items": {
+            "x-stoplight": {
+              "id": "mzlbpbmhyow6b"
+            },
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "x-stoplight": {
+                  "id": "mhaj86kdyaqmk"
+                }
+              },
+              "flag": {
+                "x-stoplight": {
+                  "id": "3dz3gvum7c437"
+                },
+                "enum": [
+                  "EXPERIAN_CREDIT_FREEZE",
+                  "EXPERIAN_CREDIT_LOCK",
+                  "EXPERIAN_NO_HIT",
+                  "TRANSUNION_CREDIT_FREEZE",
+                  "TRANSUNION_NO_HIT",
+                  "PII_MISMATCH",
+                  "PHONE_SSN_MISMATCH"
+                ]
+              }
+            }
+          }
+        },
+        "merchant_data": {
+          "$ref": "./merchant_data.json",
+          "x-stoplight": {
+            "id": "kl43ki7r2nkr6"
+          }
+        }
+      }
+    }
+  }
+}

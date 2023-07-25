@@ -1,0 +1,18 @@
+{
+  "title": "account_type",
+  "x-stoplight": {
+    "id": "5cyilb35kq5fe"
+  },
+  "type": "object",
+  "properties": {
+    "id": {
+      "x-stoplight": {
+        "id": "toxvmwyjy4med"
+      },
+      "enum": [
+        "CHECKING",
+        "SAVINGS"
+      ]
+    }
+  }
+}

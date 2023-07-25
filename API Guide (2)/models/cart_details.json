@@ -1,0 +1,45 @@
+{
+  "title": "cart_details",
+  "x-stoplight": {
+    "id": "p5pzzmi884xtr"
+  },
+  "type": "object",
+  "properties": {
+    "items": {
+      "$ref": "./items.json",
+      "x-stoplight": {
+        "id": "s69hy5ezqc3h2"
+      }
+    },
+    "discount": {
+      "type": "number",
+      "x-stoplight": {
+        "id": "phefkmy3o23ym"
+      }
+    },
+    "shipping": {
+      "type": "number",
+      "x-stoplight": {
+        "id": "5w3p1yxgpl9hi"
+      }
+    },
+    "taxes": {
+      "type": "number",
+      "x-stoplight": {
+        "id": "oczd9w3051m13"
+      }
+    },
+    "net_amount": {
+      "$ref": "./amount.json",
+      "x-stoplight": {
+        "id": "p4c7j4idbu9m1"
+      }
+    },
+    "currency": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "l86sdg4bk2b59"
+      }
+    }
+  }
+}

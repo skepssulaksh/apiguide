@@ -1,0 +1,8 @@
+{
+  "title": "amount",
+  "x-stoplight": {
+    "id": "7wpchh3ffxgcc"
+  },
+  "type": "number",
+  "format": "double"
+}

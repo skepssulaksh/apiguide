@@ -1,0 +1,42 @@
+{
+  "title": "field_error",
+  "x-stoplight": {
+    "id": "sh4fwax9lqaf1"
+  },
+  "type": "object",
+  "properties": {
+    "field_type": {
+      "x-stoplight": {
+        "id": "l3eh2d6xo2952"
+      },
+      "enum": [
+        "HEADER",
+        "QUERY",
+        "PATH",
+        "BODY"
+      ]
+    },
+    "location": {
+      "type": "array",
+      "x-stoplight": {
+        "id": "h7xneiszs1xft"
+      },
+      "description": "Location of the field in case of field_type body.\n\n",
+      "items": {
+        "x-stoplight": {
+          "id": "6tnrmz7feh4lw"
+        },
+        "type": "string"
+      }
+    },
+    "issue": {
+      "x-stoplight": {
+        "id": "w7i9li6c6gu7o"
+      },
+      "enum": [
+        "REQUIRED",
+        "INVALID"
+      ]
+    }
+  }
+}

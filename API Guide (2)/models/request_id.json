@@ -1,0 +1,9 @@
+{
+  "title": "request_id",
+  "x-stoplight": {
+    "id": "hheqwtx0061g8"
+  },
+  "type": "string",
+  "format": "uuid",
+  "description": "Unique UUID"
+}

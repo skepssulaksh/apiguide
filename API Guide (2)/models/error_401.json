@@ -1,0 +1,32 @@
+{
+  "title": "error_401",
+  "x-stoplight": {
+    "id": "8ur53rvxk80s6"
+  },
+  "type": "object",
+  "properties": {
+    "message": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "1tzss1qb7qx50"
+      },
+      "description": "Message of the response."
+    },
+    "timestamp": {
+      "$ref": "./timestamp.json",
+      "x-stoplight": {
+        "id": "py4ini9v1qqwt"
+      },
+      "description": "Time stamp"
+    },
+    "status": {
+      "x-stoplight": {
+        "id": "8jtf1w3n6kmjm"
+      },
+      "enum": [
+        "ERROR"
+      ],
+      "description": "Status of the response."
+    }
+  }
+}

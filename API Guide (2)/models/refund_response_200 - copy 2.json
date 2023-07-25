@@ -1,0 +1,51 @@
+{
+  "title": "refund_response_200",
+  "x-stoplight": {
+    "id": "szs7o59uprb5m"
+  },
+  "type": "object",
+  "properties": {
+    "request_id": {
+      "$ref": "./request_id.json",
+      "x-stoplight": {
+        "id": "fslbnrbpd2o80"
+      }
+    },
+    "timestamp": {
+      "$ref": "./timestamp.json",
+      "x-stoplight": {
+        "id": "e05nh0xuyd2tl"
+      }
+    },
+    "status": {
+      "x-stoplight": {
+        "id": "s6zi2b64xeta4"
+      },
+      "enum": [
+        "SUCCESS"
+      ]
+    },
+    "data": {
+      "type": "object",
+      "x-stoplight": {
+        "id": "aq5d0gp56n0wl"
+      },
+      "properties": {
+        "id": {
+          "type": "string",
+          "x-stoplight": {
+            "id": "g2fyru80cg1z9"
+          }
+        },
+        "status": {
+          "x-stoplight": {
+            "id": "8460gwmcujg23"
+          },
+          "enum": [
+            "REFUNDED"
+          ]
+        }
+      }
+    }
+  }
+}

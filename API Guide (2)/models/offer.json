@@ -1,0 +1,124 @@
+{
+  "type": "object",
+  "x-stoplight": {
+    "id": "53913dfec6684"
+  },
+  "properties": {
+    "lender_name": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "r9rpws33z0v27"
+      }
+    },
+    "offer_for": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "2b9f88by3g4ll"
+      }
+    },
+    "offer_id": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "enhynyyzp3ss4"
+      }
+    },
+    "term_value": {
+      "type": "integer",
+      "x-stoplight": {
+        "id": "3xeec89yhxdom"
+      }
+    },
+    "term_unit": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "b2pwt7uezosc7"
+      }
+    },
+    "apr": {
+      "type": "integer",
+      "x-stoplight": {
+        "id": "mwi8f7l4ppoaw"
+      }
+    },
+    "plan_id": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "uwhf3rwtzdcoh"
+      }
+    },
+    "min_amount": {
+      "type": "integer",
+      "x-stoplight": {
+        "id": "o9lz9h74rqw5t"
+      }
+    },
+    "max_amount": {
+      "type": "integer",
+      "x-stoplight": {
+        "id": "kbizf6bct59c7"
+      }
+    },
+    "expiry": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "qwzenzskpsvbd"
+      }
+    },
+    "is_incentivized": {
+      "type": "boolean",
+      "x-stoplight": {
+        "id": "cqmfkgivo42xx"
+      }
+    },
+    "payment_amount": {
+      "type": "integer",
+      "x-stoplight": {
+        "id": "4qh206diofejo"
+      }
+    },
+    "payment_frequency_unit": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "e1qy5vmhrm897"
+      }
+    },
+    "payment_frequency_value": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "y44wc3u2d3jl4"
+      }
+    },
+    "loan_amount": {
+      "type": "integer",
+      "x-stoplight": {
+        "id": "le5410ywj9bcq"
+      }
+    },
+    "payment_factor": {
+      "type": "integer",
+      "x-stoplight": {
+        "id": "e74ueaarptdo9"
+      }
+    }
+  },
+  "x-examples": {
+    "Example 1": {
+      "lender_name": "string",
+      "offer_for": "233ed1cd-04f5-4dce-ae12-59f2d7c52206",
+      "offer_id": "string",
+      "term_value": 0,
+      "term_unit": "string",
+      "apr": 0,
+      "plan_id": "string",
+      "min_amount": 0,
+      "max_amount": 0,
+      "expiry": "2019-08-24T14:15:22Z",
+      "is_incentivized": true,
+      "payment_amount": 0,
+      "payment_frequency_unit": "string",
+      "payment_frequency_value": "string",
+      "loan_amount": 0,
+      "payment_factor": -1.7976931348623157e+308
+    }
+  }
+}

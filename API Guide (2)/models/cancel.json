@@ -1,0 +1,39 @@
+{
+  "title": "cancel",
+  "x-stoplight": {
+    "id": "xp6ind8ahixub"
+  },
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "zsni1o2qy377i"
+      },
+      "description": "Recieved after creating an entity."
+    },
+    "merchant_id": {
+      "$ref": "./merchant_id.json",
+      "x-stoplight": {
+        "id": "xqejgdm3e31a6"
+      }
+    },
+    "store_id": {
+      "$ref": "./store_id.json",
+      "x-stoplight": {
+        "id": "93d8uh3n9p0r4"
+      }
+    },
+    "request_id": {
+      "$ref": "./request_id.json",
+      "x-stoplight": {
+        "id": "p7vgakw5qeazd"
+      }
+    }
+  },
+  "required": [
+    "id",
+    "merchant_id",
+    "store_id"
+  ]
+}

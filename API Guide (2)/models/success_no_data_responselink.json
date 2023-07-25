@@ -1,0 +1,39 @@
+{
+  "title": "response_",
+  "x-stoplight": {
+    "id": "8e2jjz7m3fzbz"
+  },
+  "type": "object",
+  "properties": {
+    "request_id": {
+      "$ref": "./request_id.json",
+      "x-stoplight": {
+        "id": "8s1us4tdx38jx"
+      }
+    },
+    "data": {
+      "$ref": "./success_no_data.json",
+      "x-stoplight": {
+        "id": "j79i4a24i7em3"
+      }
+    },
+    "timestamp": {
+      "$ref": "./timestamp.json",
+      "x-stoplight": {
+        "id": "inxyk0fswu8t7"
+      }
+    },
+    "status": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "czndmmrp9dotw"
+      }
+    },
+    "link": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "bkyrkd2lruaop"
+      }
+    }
+  }
+}

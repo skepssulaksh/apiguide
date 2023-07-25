@@ -1,0 +1,59 @@
+{
+  "type": "object",
+  "x-stoplight": {
+    "id": "xilpgxobsto63"
+  },
+  "x-examples": {
+    "Example 1": {
+      "id": "string",
+      "merchant_id": "string",
+      "store_id": "string",
+      "request_id": "266ea41d-adf5-480b-af50-15b940c2b846"
+    }
+  },
+  "title": "success_with_link",
+  "properties": {
+    "id": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "voic70qmn6770"
+      }
+    },
+    "merchant_id": {
+      "$ref": "./merchant_id.json",
+      "x-stoplight": {
+        "id": "ah2ja17i8c6tb"
+      }
+    },
+    "store_id": {
+      "$ref": "./store_id.json",
+      "x-stoplight": {
+        "id": "w3ylift0q4meg"
+      }
+    },
+    "request_id": {
+      "$ref": "./request_id.json",
+      "x-stoplight": {
+        "id": "7fiwk6jha2i6t"
+      }
+    },
+    "timestamp": {
+      "$ref": "./timestamp.json",
+      "x-stoplight": {
+        "id": "kkd2sh1j9w9o9"
+      }
+    },
+    "status": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "2sxcpcxkqid2z"
+      }
+    },
+    "link": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "z0lzfcounfybd"
+      }
+    }
+  }
+}

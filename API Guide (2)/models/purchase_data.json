@@ -1,0 +1,147 @@
+{
+  "title": "purchase_data",
+  "x-stoplight": {
+    "id": "1by8atzoljoch"
+  },
+  "type": "object",
+  "properties": {
+    "billing_details": {
+      "type": "object",
+      "x-stoplight": {
+        "id": "u3z1klei5pvbv"
+      },
+      "description": "Billing Details.",
+      "properties": {
+        "first_name": {
+          "type": "string",
+          "x-stoplight": {
+            "id": "28vfrg22zh8wx"
+          }
+        },
+        "last_name": {
+          "type": "string",
+          "x-stoplight": {
+            "id": "yrm3ozna2ncqx"
+          }
+        },
+        "cell_phone": {
+          "type": "string",
+          "x-stoplight": {
+            "id": "q8nl4r7t20lt1"
+          }
+        },
+        "email": {
+          "type": "string",
+          "x-stoplight": {
+            "id": "9b09pixnm6z9k"
+          }
+        },
+        "address": {
+          "$ref": "./address.json",
+          "x-stoplight": {
+            "id": "3ums1szf8h3aq"
+          }
+        }
+      }
+    },
+    "shipping_details": {
+      "type": "object",
+      "x-stoplight": {
+        "id": "bot63ko6b4gy4"
+      },
+      "description": "Shiiping details.",
+      "properties": {
+        "first_name": {
+          "type": "string",
+          "x-stoplight": {
+            "id": "f6qqw8imqogu1"
+          }
+        },
+        "last_name": {
+          "type": "string",
+          "x-stoplight": {
+            "id": "dmgy9dux3p7vm"
+          }
+        },
+        "cell_phone": {
+          "type": "string",
+          "x-stoplight": {
+            "id": "9j15ruyqjb9g4"
+          }
+        },
+        "email": {
+          "type": "string",
+          "x-stoplight": {
+            "id": "4wdsosy9y8h32"
+          }
+        },
+        "address": {
+          "$ref": "./address.json",
+          "x-stoplight": {
+            "id": "3mde2ymb0nza8"
+          }
+        }
+      }
+    },
+    "cart_details": {
+      "$ref": "./cart_details.json",
+      "x-stoplight": {
+        "id": "r4usshogf0dii"
+      },
+      "description": "Cart Details."
+    },
+    "property_details": {
+      "type": "object",
+      "x-stoplight": {
+        "id": "ph7yyancpmzhl"
+      },
+      "description": "Property Details.",
+      "properties": {
+        "address": {
+          "$ref": "./address.json",
+          "x-stoplight": {
+            "id": "x4g3dk6223i08"
+          }
+        },
+        "is_rented": {
+          "type": "boolean",
+          "x-stoplight": {
+            "id": "xlxzx644dnl3f"
+          }
+        }
+      }
+    },
+    "service_details": {
+      "type": "object",
+      "x-stoplight": {
+        "id": "dkgkiv9hcxa5n"
+      },
+      "properties": {
+        "type": {
+          "type": "string",
+          "x-stoplight": {
+            "id": "ysjycq8d4zcbg"
+          }
+        },
+        "provider_id": {
+          "type": "string",
+          "x-stoplight": {
+            "id": "kiwrb5z71xx3c"
+          }
+        }
+      }
+    },
+    "category ": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "fubz4obqi7hj8"
+      }
+    },
+    "sub_category": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "26gjrrz5o7xmk"
+      }
+    }
+  }
+}

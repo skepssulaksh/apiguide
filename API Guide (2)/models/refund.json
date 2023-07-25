@@ -1,0 +1,56 @@
+{
+  "title": "refund",
+  "x-stoplight": {
+    "id": "aoye5ff0cm5bw"
+  },
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "vhllasdit0ijp"
+      },
+      "description": "Unique identifier in the request"
+    },
+    "request_id": {
+      "$ref": "./request_id.json",
+      "x-stoplight": {
+        "id": "0db1a0c7yomby"
+      }
+    },
+    "merchant_id": {
+      "$ref": "./merchant_id.json",
+      "x-stoplight": {
+        "id": "0y7xo297bdebg"
+      }
+    },
+    "store_id": {
+      "$ref": "./store_id.json",
+      "x-stoplight": {
+        "id": "ybqzewb1o1s9c"
+      }
+    },
+    "amount": {
+      "$ref": "./amount.json",
+      "x-stoplight": {
+        "id": "ujm82o6307h71"
+      },
+      "description": "The amount to be refunded back to the lender."
+    },
+    "currency": {
+      "x-stoplight": {
+        "id": "kqh3ms6l6e9b7"
+      },
+      "enum": [
+        "USD"
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "merchant_id",
+    "store_id",
+    "amount",
+    "currency"
+  ]
+}

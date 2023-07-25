@@ -1,0 +1,106 @@
+{
+  "type": "object",
+  "x-stoplight": {
+    "id": "ce36350004bec"
+  },
+  "x-examples": {
+    "Example 1": {
+      "id": "string",
+      "merchant_id": "string",
+      "store_id": "string",
+      "amount": 0,
+      "currency": "USD",
+      "merchant_data": {
+        "reference_id": "string",
+        "metadata": {},
+        "dealer_data": {
+          "id": "string",
+          "name": "string",
+          "address": {
+            "unit": "string",
+            "street_address_1": "string",
+            "street_address_2": "string",
+            "city": "string",
+            "state": "st",
+            "country": "US",
+            "zip_code": "string"
+          }
+        },
+        "representative_data": {
+          "id": "string",
+          "name": "string",
+          "cell_phone": "string",
+          "email": "string"
+        }
+      },
+      "payment_data": {
+        "account_number": "string",
+        "routing_number": "string",
+        "account_type": {
+          "id": "CHECKING"
+        },
+        "processing_info": {}
+      }
+    }
+  },
+  "properties": {
+    "id": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "6m2nxkmz3ntc4"
+      }
+    },
+    "request_id": {
+      "$ref": "./request_id.json",
+      "x-stoplight": {
+        "id": "g698mthkklu4b"
+      }
+    },
+    "merchant_id": {
+      "$ref": "./merchant_id.json",
+      "x-stoplight": {
+        "id": "tewq0qh02w6k4"
+      }
+    },
+    "store_id": {
+      "$ref": "./store_id.json",
+      "x-stoplight": {
+        "id": "ftzk5vln8at1c"
+      }
+    },
+    "amount": {
+      "$ref": "./amount.json",
+      "description": "Funding amount to be released by the lender to the merchant.",
+      "x-stoplight": {
+        "id": "8tvhvaugyvr2v"
+      }
+    },
+    "currency": {
+      "x-stoplight": {
+        "id": "tz5sce7y51klg"
+      },
+      "enum": [
+        "USD"
+      ]
+    },
+    "payment_data": {
+      "$ref": "./payment_data.json",
+      "x-stoplight": {
+        "id": "uqnaku6mo3577"
+      }
+    },
+    "merchant_data": {
+      "$ref": "./merchant_data.json",
+      "x-stoplight": {
+        "id": "5t5rkwzwkmdwl"
+      }
+    }
+  },
+  "required": [
+    "id",
+    "merchant_id",
+    "store_id",
+    "amount",
+    "currency"
+  ]
+}

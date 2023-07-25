@@ -1,0 +1,50 @@
+{
+  "title": "resend_request",
+  "x-stoplight": {
+    "id": "uuasauxcaf8uf"
+  },
+  "type": "object",
+  "properties": {
+    "merchant_id": {
+      "$ref": "./merchant_id.json",
+      "x-stoplight": {
+        "id": "1nst0jgg6o0i5"
+      }
+    },
+    "store_id": {
+      "$ref": "./store_id.json",
+      "x-stoplight": {
+        "id": "oy41hv3bs7mcn"
+      }
+    },
+    "id": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "06qsc6j4xkodt"
+      }
+    },
+    "request_id": {
+      "$ref": "./request_id.json",
+      "x-stoplight": {
+        "id": "dsjq46jixe2me"
+      }
+    },
+    "notification_channels": {
+      "$ref": "./notification_channels.json",
+      "x-stoplight": {
+        "id": "8y7bpgd2f1oqp"
+      }
+    },
+    "email": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "7uzbpg42vhbtm"
+      }
+    }
+  },
+  "required": [
+    "merchant_id",
+    "store_id",
+    "id"
+  ]
+}

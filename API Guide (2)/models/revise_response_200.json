@@ -1,0 +1,90 @@
+{
+  "title": "revise_response_200",
+  "x-stoplight": {
+    "id": "4f157nr6acv0u"
+  },
+  "type": "object",
+  "properties": {
+    "request_id": {
+      "$ref": "./request_id.json",
+      "x-stoplight": {
+        "id": "3kqdpptxb0xmh"
+      }
+    },
+    "timestamp": {
+      "$ref": "./timestamp.json",
+      "x-stoplight": {
+        "id": "1x14bc5u4dnm9"
+      }
+    },
+    "status": {
+      "x-stoplight": {
+        "id": "kaeo5k8qpkcmr"
+      },
+      "enum": [
+        "SUCCESS"
+      ]
+    },
+    "data": {
+      "type": "object",
+      "x-stoplight": {
+        "id": "xse74bmzmabr2"
+      },
+      "properties": {
+        "id": {
+          "type": "string",
+          "x-stoplight": {
+            "id": "sh2yp8jhu8661"
+          }
+        },
+        "status": {
+          "x-stoplight": {
+            "id": "r9abkn3szrqpv"
+          },
+          "enum": [
+            "APPROVED",
+            "DECLINED"
+          ]
+        },
+        "redirect_url": {
+          "type": "string",
+          "x-stoplight": {
+            "id": "nagza8jztgaby"
+          }
+        },
+        "offers": {
+          "type": "array",
+          "x-stoplight": {
+            "id": "tdvh78k8jsq4c"
+          },
+          "items": {
+            "$ref": "./offer.json",
+            "x-stoplight": {
+              "id": "72v8omheuszhw"
+            }
+          }
+        },
+        "selected_offer": {
+          "$ref": "./offer.json",
+          "x-stoplight": {
+            "id": "ja6ivx9g64sps"
+          }
+        },
+        "requires_stipulations": {
+          "type": "boolean",
+          "x-stoplight": {
+            "id": "miqu1pgd9fyto"
+          },
+          "description": "Possible values: false (default)\ntrue: Approved but lender requires further verification."
+        },
+        "requires_review": {
+          "type": "boolean",
+          "x-stoplight": {
+            "id": "9wspzafbxlpe1"
+          },
+          "description": "Possible values: true: In case of status marked as “pending”\nfalse\n\nDefault: true"
+        }
+      }
+    }
+  }
+}

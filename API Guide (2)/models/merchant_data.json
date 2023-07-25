@@ -1,0 +1,79 @@
+{
+  "title": "merchant_data",
+  "x-stoplight": {
+    "id": "euzqrol3fjt45"
+  },
+  "type": "object",
+  "properties": {
+    "reference_id": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "z4z8uktj1ultr"
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "x-stoplight": {
+        "id": "g7no5kiy97dsg"
+      }
+    },
+    "dealer_data": {
+      "type": "object",
+      "x-stoplight": {
+        "id": "of9mq74ae3abt"
+      },
+      "properties": {
+        "id": {
+          "type": "string",
+          "x-stoplight": {
+            "id": "68wgsuj1etdmv"
+          }
+        },
+        "name": {
+          "type": "string",
+          "x-stoplight": {
+            "id": "do4u3fmxfb0yz"
+          }
+        },
+        "address": {
+          "$ref": "./address.json",
+          "x-stoplight": {
+            "id": "833zqnpgp5wyd"
+          }
+        }
+      }
+    },
+    "representative_data": {
+      "type": "object",
+      "x-stoplight": {
+        "id": "z69ago56v6jm2"
+      },
+      "properties": {
+        "id": {
+          "type": "string",
+          "x-stoplight": {
+            "id": "29yz8o5qv0gz9"
+          }
+        },
+        "name": {
+          "type": "string",
+          "x-stoplight": {
+            "id": "ntmu3lqnu2asq"
+          }
+        },
+        "cell_phone": {
+          "type": "string",
+          "x-stoplight": {
+            "id": "h6a4i63cutjf9"
+          }
+        },
+        "email": {
+          "type": "string",
+          "x-stoplight": {
+            "id": "5u927jwd0jvxv"
+          }
+        }
+      }
+    }
+  }
+}
