@@ -10,7 +10,7 @@
       "x-stoplight": {
         "id": "0dcojzt9txe6y"
       },
-      "description": "Unique identifier in the request"
+      "description": "Unique identifier in the request."
     },
     "request_id": {
       "$ref": "./request_id.json",
