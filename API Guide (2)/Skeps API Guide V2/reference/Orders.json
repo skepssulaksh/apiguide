@@ -878,7 +878,7 @@
     },
     "/Webhook": {
       "post": {
-        "summary": "webhook",
+        "summary": "Webhook",
         "tags": [],
         "responses": {},
         "operationId": "post-Webhook",
