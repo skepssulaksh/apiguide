@@ -243,7 +243,7 @@
           },
           "description": ""
         },
-        "description": "This API allows the merchant to establish a secure connection with Skeps infra and returns an accessToken which must be used for all the other APIs. The generated token is valid for 24 hours and the latest generated token should be used for the APIs. This API is not required in special circumstances where a static token is provided to the merchant.\n"
+        "description": "This API allows the merchant to establish a secure connection with Skeps infra and returns an accessToken which must be used for all the other APIs. The generated token is valid for 24 hours and the latest generated token should be used for the APIs."
       }
     }
   },
