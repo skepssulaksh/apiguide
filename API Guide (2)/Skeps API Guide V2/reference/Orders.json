@@ -240,16 +240,17 @@
         }
       },
       "parameters": [
-          {
-            "schema": {
-              "type": "string"
-            },
-            "in": "header",
-            "name": "Authorization",
-            "description": "Bearer[accessToken]",
-            "required": true
-          }
-        ]    },
+        {
+          "schema": {
+            "type": "string"
+          },
+          "in": "header",
+          "name": "Authorization",
+          "description": "Bearer[accessToken]",
+          "required": true
+        }
+      ]
+    },
     "/application/api/merchant/v2/order/finalize": {
       "post": {
         "summary": "Finalize",
@@ -437,16 +438,17 @@
         "description": "This API allows the partner to initiate funding of a transaction. The API responds with the virtual card details for completing payment through your preferred payment gateway.\n\n"
       },
       "parameters": [
-          {
-            "schema": {
-              "type": "string"
-            },
-            "in": "header",
-            "name": "Authorization",
-            "description": "Bearer[accessToken]",
-            "required": true
-          }
-        ]    },
+        {
+          "schema": {
+            "type": "string"
+          },
+          "in": "header",
+          "name": "Authorization",
+          "description": "Bearer[accessToken]",
+          "required": true
+        }
+      ]
+    },
     "/application/api/merchant/v2/order/refund": {
       "post": {
         "summary": "Refund",
@@ -600,16 +602,17 @@
         "description": "This API enables the partner to verify whether the order is ready to be refund. Refunding API should be invoked after successful verification for the orderId (with the amount verified). Failed verification indicates that payment API would not succeed.\n\n"
       },
       "parameters": [
-          {
-            "schema": {
-              "type": "string"
-            },
-            "in": "header",
-            "name": "Authorization",
-            "description": "Bearer[accessToken]",
-            "required": true
-          }
-        ]    },
+        {
+          "schema": {
+            "type": "string"
+          },
+          "in": "header",
+          "name": "Authorization",
+          "description": "Bearer[accessToken]",
+          "required": true
+        }
+      ]
+    },
     "/application/api/merchant/v2/order/cancel": {
       "post": {
         "summary": "Cancel",
@@ -760,16 +763,17 @@
         "description": "This API enables the partner to cancel the order for which the payment API has not been called yet.\n\n"
       },
       "parameters": [
-          {
-            "schema": {
-              "type": "string"
-            },
-            "in": "header",
-            "name": "Authorization",
-            "description": "Bearer[accessToken]",
-            "required": true
-          }
-        ]    },
+        {
+          "schema": {
+            "type": "string"
+          },
+          "in": "header",
+          "name": "Authorization",
+          "description": "Bearer[accessToken]",
+          "required": true
+        }
+      ]
+    },
     "/application/api/merchant/v2/order/verify": {
       "post": {
         "summary": "Verify",
@@ -861,16 +865,45 @@
         "description": "This API enables the partner to verify whether the order is ready to be funded. Funding API should be invoked after successful verification for the orderId (with the amount verified). Failed verification indicates that payment API would not succeed.\n\n"
       },
       "parameters": [
-          {
-            "schema": {
-              "type": "string"
-            },
-            "in": "header",
-            "name": "Authorization",
-            "description": "Bearer[accessToken]",
-            "required": true
+        {
+          "schema": {
+            "type": "string"
+          },
+          "in": "header",
+          "name": "Authorization",
+          "description": "Bearer[accessToken]",
+          "required": true
+        }
+      ]
+    },
+    "/Webhook": {
+      "post": {
+        "summary": "Webhook",
+        "tags": [],
+        "responses": {},
+        "operationId": "post-Webhook",
+        "x-stoplight": {
+          "id": "1psh1fmt5us43"
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "": {
+                    "$ref": "../../models/order_webhook.json",
+                    "x-stoplight": {
+                      "id": "mmkfe4okf7siz"
+                    }
+                  }
+                }
+              }
+            }
           }
-        ]    }
+        }
+      }
+    }
   },
   "components": {
     "schemas": {}

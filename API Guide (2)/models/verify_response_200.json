@@ -52,39 +52,15 @@
           "description": "This is the response status of verify."
         },
         "fund_summary": {
-          "type": "object",
+          "$ref": "./fund_summary.json",
           "x-stoplight": {
             "id": "i9qnl3b9kufps"
-          },
-          "properties": {
-            "contract_amount": {
-              "type": "string",
-              "x-stoplight": {
-                "id": "1the8kzzbyu1s"
-              },
-              "description": "Total contract amount."
-            },
-            "funds_under_process": {
-              "type": "string",
-              "x-stoplight": {
-                "id": "ww0idqjq83f1x"
-              },
-              "description": "Amount under process."
-            },
-            "funds_available": {
-              "type": "string",
-              "x-stoplight": {
-                "id": "fgk7vnopwa0f6"
-              },
-              "description": "Funds remaining."
-            },
-            "funded_amount": {
-              "type": "string",
-              "x-stoplight": {
-                "id": "eu2o9x0df061v"
-              },
-              "description": "Total amount funded."
-            }
+          }
+        },
+        "selected_offer": {
+          "$ref": "./offer.json",
+          "x-stoplight": {
+            "id": "5284rj8rzt81u"
           }
         }
       }
