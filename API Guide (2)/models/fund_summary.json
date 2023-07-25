@@ -1,0 +1,51 @@
+{
+  "title": "fund_summary",
+  "x-stoplight": {
+    "id": "uk3gigg2h3oyn"
+  },
+  "type": "object",
+  "properties": {
+    "contract_amount": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "o5cpngfebpojh"
+      },
+      "description": "Total contract amount."
+    },
+    "funds_available": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "ol8nk1kbifn3k"
+      },
+      "description": "Funds remaining."
+    },
+    "funded_amount": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "cl0qnpa7vif63"
+      },
+      "description": "Total funded amount."
+    },
+    "funds_under_process": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "6m8k0ryz9h6qs"
+      },
+      "description": "Amount under process."
+    },
+    "refunded_amount": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "apzwel95a6sdy"
+      },
+      "description": "Total amount refunded successfully."
+    },
+    "refunds_under_process": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "q0py337zunwa2"
+      },
+      "description": "Refund amount under process."
+    }
+  }
+}

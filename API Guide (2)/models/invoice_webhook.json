@@ -1,25 +1,25 @@
 {
-  "title": "webhook_request",
+  "title": "invoice_webhook",
   "x-stoplight": {
-    "id": "hwt20ks3fa1jj"
+    "id": "5h9umvthwo805"
   },
   "type": "object",
   "properties": {
     "id": {
       "type": "string",
       "x-stoplight": {
-        "id": "koaduh2n661th"
+        "id": "r485jfs8o7v05"
       }
     },
     "timestamp": {
       "$ref": "./timestamp.json",
       "x-stoplight": {
-        "id": "o94mhrto9zwka"
+        "id": "4ktglefdtji7o"
       }
     },
     "type": {
       "x-stoplight": {
-        "id": "j8frux915jrog"
+        "id": "8xvlk9a7q3o6s"
       },
       "enum": [
         "ORDER",
@@ -31,115 +31,107 @@
     "data": {
       "type": "object",
       "x-stoplight": {
-        "id": "7fhdz7t09o796"
+        "id": "0vaod7ehj0s8v"
       },
       "properties": {
         "id": {
           "type": "string",
           "x-stoplight": {
-            "id": "hvl69oynrz7mz"
+            "id": "q9qiukc0c81sx"
           }
         },
         "store_id": {
           "$ref": "./store_id.json",
           "x-stoplight": {
-            "id": "r0lsibpdxw1dl"
+            "id": "6355i76kwmnmc"
           }
         },
         "merchant_id": {
           "$ref": "./merchant_id.json",
           "x-stoplight": {
-            "id": "kzjp3zlwia545"
+            "id": "od7yjuyr4mwa0"
           }
         },
         "amount": {
           "$ref": "./amount.json",
           "x-stoplight": {
-            "id": "u73bgirbfp9jc"
+            "id": "qm6hinbfah6js"
           },
           "description": "This applies when status is READY_TO_FUND,\nFUNDING_INITIATED, FUNDING_REJECTED, FUNDED, REFUND_INITIATED, REFUND_REJECTED, REFUNDED."
         },
         "lender": {
           "type": "string",
           "x-stoplight": {
-            "id": "zsnbowdkmo31n"
+            "id": "122x6wvctk0e9"
           }
         },
         "status": {
           "x-stoplight": {
-            "id": "gumtwhkxg6a4o"
+            "id": "sv6sgxjbpykl2"
           },
           "enum": [
-            "APPROVED",
-            "PENDING",
-            "CLEARED",
+            "CREATED",
             "READY_TO_FUND",
-            "FUNDING_INITIATED",
-            "FUNDING_REJECTED",
             "FUNDED",
-            "REFUND_INITIATED",
-            "REFUND_REJECTED",
             "REFUNDED",
             "CANCELED",
-            "DECLINED",
-            "EXPIRED"
-          ],
-          "description": "- APPROVED: When a customer is approved, webhook contains offers presented to the customer\n- PENDING: When customer application is pending and requires manual review\n- CLEARED: When pending customer application gets cleared to proceed further.\n- READY_TO_FUND: When a customer signs the contract, webhook contains the offer selected by the customer\n- FUNDING_INITIATED: When the merchant initiates the funding request\n- FUNDING_REJECTED: When the lender rejects the funding request\n- FUNDED: When the amount is funded successfully to the merchant\n- REFUND_INITIATED: When the merchant initiates a partial or full loan refund\n- REFUND_REJECTED: When the lender rejects the refund request\n- REFUNDED: When the amount is refunded successfully to the lender\n- CANCELED: When the customer approved for cancellation and the loan is canceled\n- DECLINED: When a customer is declined\n- EXPIRED: When live offers or contract is expired"
+            "FAILED"
+          ]
         },
         "max_qualified_amount": {
           "$ref": "./amount.json",
           "x-stoplight": {
-            "id": "829qxaksqotew"
+            "id": "8q46w1eiwnbi5"
           }
         },
         "offers": {
           "type": "array",
           "x-stoplight": {
-            "id": "sw5isbqkiwkd7"
+            "id": "h1jduasvyglqr"
           },
           "items": {
             "$ref": "./offer.json",
             "x-stoplight": {
-              "id": "9rb6f69mjktjh"
+              "id": "m4ldnsca2509g"
             }
           }
         },
         "selected_offer": {
           "$ref": "./offer.json",
           "x-stoplight": {
-            "id": "h9um6ury4lpnr"
+            "id": "68u01ptyug81m"
           }
         },
         "requires_stipulations": {
           "type": "boolean",
           "x-stoplight": {
-            "id": "1lvg5r2tjwlq4"
+            "id": "etnrqxuxtydem"
           },
           "description": "Possible values: false (default)\ntrue: Approved but lender requires further verification."
         },
         "requires_review": {
           "type": "boolean",
           "x-stoplight": {
-            "id": "00slpp7rhzl5m"
+            "id": "gsy0gr3lnzc6j"
           },
           "description": "Possible values: true: In case of status marked as “pending”\nfalse\n\nDefault: true"
         },
         "merchant_data": {
           "$ref": "./merchant_data.json",
           "x-stoplight": {
-            "id": "8p2rm2l000gwe"
+            "id": "4g5yvpve45fyl"
           }
         },
         "expiry": {
           "type": "string",
           "x-stoplight": {
-            "id": "eyrpohwpf7flx"
+            "id": "o14m436lkgv9g"
           }
         },
         "fund_summary": {
           "$ref": "./fund_summary.json",
           "x-stoplight": {
-            "id": "djmlp5fw8qwx6"
+            "id": "cakybidu1nlv8"
           }
         }
       }

@@ -614,7 +614,6 @@
           }
         ]
       },
-      
       "parameters": []
     },
     "/application/api/merchant/v2/invoice/finalize": {
@@ -755,16 +754,16 @@
         }
       },
       "parameters": [
-          {
-            "schema": {
-              "type": "string"
-            },
-            "in": "header",
-            "name": "Authorization",
-            "description": "Bearer[accessToken]",
-            "required": true
-          }
-        ]
+        {
+          "schema": {
+            "type": "string"
+          },
+          "in": "header",
+          "name": "Authorization",
+          "description": "Bearer[accessToken]",
+          "required": true
+        }
+      ]
     },
     "/application/api/merchant/v2/invoice/refund": {
       "post": {
@@ -1459,6 +1458,34 @@
         ]
       },
       "parameters": []
+    },
+    "/Webhook": {
+      "post": {
+        "summary": "webhook",
+        "tags": [],
+        "responses": {},
+        "operationId": "post-Webhook",
+        "x-stoplight": {
+          "id": "1idxap7bqwskt"
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "": {
+                    "$ref": "../../models/invoice_webhook.json",
+                    "x-stoplight": {
+                      "id": "qxiynus03k352"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
