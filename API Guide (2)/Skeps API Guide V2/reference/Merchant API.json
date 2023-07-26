@@ -1070,7 +1070,7 @@
                 "properties": {
                   "id": {
                     "type": "string",
-                    "description": "The applicationId received in the checkOffers API",
+                    "description": "The applicationId received in the initiate API",
                     "x-stoplight": {
                       "id": "ehospitqni972"
                     }

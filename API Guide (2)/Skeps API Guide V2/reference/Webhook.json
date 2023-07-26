@@ -20,13 +20,7 @@
         "responses": {
           "200": {
             "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "../../models/webhook_response_200.yaml"
-                }
-              }
-            }
+            "content": {}
           }
         },
         "operationId": "post-webhook",
